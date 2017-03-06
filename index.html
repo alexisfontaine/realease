@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>About RealEase</title>
+
+	<meta name="robots" content="index,follow,noodp">
+	<meta name="description" content="Display a feed of the releases of all your starred GitHub repositories">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main>
+		<section class="introduction">
+			<div class="introduction__container">
+				<header class="introduction__header">
+					<h1 class="introduction__title">RealEase</h1>
+					<h2 class="introduction__subtitle">Never miss another release</h2>
+
+					<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x64.exe" class="button" download>Download (v0.4.1)</a>
+				</header>
+
+				<section class="introduction__content">
+					<article class="release add">
+						<h4 class="repository__title">
+							<img class="project__logo" src="https://avatars1.githubusercontent.com/u/13409222?v=3&s=200" alt="Logo of Electron">
+							<a href="https://github.com/electron" target="_blank">electron</a>
+							/
+							<a href="https://github.com/electron/electron" target="_blank">electron</a>
+						</h4>
+
+
+						<ul class="repository__properties">
+							<li class="repository__property" v-if="value.language">
+								<span class="language__dot" style="background-color: #f34b7d;"></span>
+								C++
+							</li>
+
+							<li class="repository__property">
+								<svg class="icon icon--star" viewBox="0 0 14 16">
+									<path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path>
+								</svg>
+								42,536
+							</li>
+
+							<li class="repository__property">Updated 22 min ago</li>
+						</ul>
+
+						Build cross platform desktop apps with JavaScript, HTML, and CSS
+
+						<section class="release__content">
+							<div class="release__content__container">
+								<h3 class="release__title">
+									<svg viewBox="0 0 14 16" class="icon icon--release">
+										<path d="M7.73 1.73C7.26 1.26 6.62 1 5.96 1H3.5C2.13 1 1 2.13 1 3.5v2.47c0 .66.27 1.3.73 1.77l6.06 6.06c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41L7.73 1.73zM2.38 7.09c-.31-.3-.47-.7-.47-1.13V3.5c0-.88.72-1.59 1.59-1.59h2.47c.42 0 .83.16 1.13.47l6.14 6.13-4.73 4.73-6.13-6.15zM3.01 3h2v2H3V3h.01z"></path>
+									</svg>
+									<a href="https://github.com/electron/electron/releases/tag/v1.6.2" target="_blank">electron v1.6.2 beta</a>
+								</h3>
+
+								<p>
+									<strong>Note:</strong> This is a beta release. This is the third release running on an upgraded version of Chrome and may have some instability and/or regressions. Please file new issues for any bugs you find in it.
+								</p>
+
+								<p>
+									This release is published to <a href="https://www.npmjs.com/package/electron">npm</a> under the <code>beta</code> tag and can be installed via <code>npm install electron@beta</code>.
+								</p>
+
+								<h2 id="bug-fixes">Bug Fixes</h2>
+								<ul>
+									<li>Fixed an issue where the flash context menu would throw an error when opened when fullscreen. #8739</li>
+									<li>Fixed an issue where the <code>Buffer</code> global would be unavailable in modules required from preload scripts when node integration was disabled. #8758</li>
+									<li>Fixed a console warning message about a potential listener leak when more than 10 <code>&lt;webview&gt;</code> tags were in a page. #8742</li>
+									<li>Fixed an issue where no such module errors would be incorrectly thrown in the renderer process referencing browser process Electron modules. #8766</li>
+								</ul>
+
+								<h3 id="macos">macOS</h3>
+								<ul>
+									<li>Fixed an issue where Quick Look would not work correctly when opened from a file dialog. #8745</li>
+								</ul>
+
+								<h2 id="api-changes">API Changes</h2>
+								<ul>
+									<li>Added a new <code>async</code> option to the <code>menu.popup</code> API that causes the method to return immediately instead of after the menu is closed on all platforms and also no longer blocks rendering updates on macOS. #8702</li>
+								</ul>
+
+								<h3 id="macos">macOS</h3>
+								<ul>
+									<li>The <code>dialog.showMessageBox</code> API now supports the <code>cancelId</code> property similar to other platforms. #8733</li>
+								</ul>
+							</div>
+						</section>
+					</article>
+
+					<article class="release">
+						<h4 class="repository__title">
+							<img class="project__logo" src="https://avatars0.githubusercontent.com/u/69631?v=3&s=200" alt="Logo of Facebook">
+							<a href="https://github.com/facebook" target="_blank">facebook</a>
+							/
+							<a href="https://github.com/facebook/flow" target="_blank">flow</a>
+						</h4>
+
+
+						<ul class="repository__properties">
+							<li class="repository__property" v-if="value.language">
+								<span class="language__dot" style="background-color: #3be133;"></span>
+								OCaml
+							</li>
+
+							<li class="repository__property">
+								<svg class="icon icon--star" viewBox="0 0 14 16">
+									<path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path>
+								</svg>
+								10,463
+							</li>
+
+							<li class="repository__property">Updated 59 min ago</li>
+						</ul>
+
+						Adds static typing to JavaScript to improve developer productivity and code quality.
+
+						<section class="release__content">
+							<div class="release__content__container">
+								<h3 class="release__title">
+									<svg viewBox="0 0 14 16" class="icon icon--release">
+										<path d="M7.73 1.73C7.26 1.26 6.62 1 5.96 1H3.5C2.13 1 1 2.13 1 3.5v2.47c0 .66.27 1.3.73 1.77l6.06 6.06c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41L7.73 1.73zM2.38 7.09c-.31-.3-.47-.7-.47-1.13V3.5c0-.88.72-1.59 1.59-1.59h2.47c.42 0 .83.16 1.13.47l6.14 6.13-4.73 4.73-6.13-6.15zM3.01 3h2v2H3V3h.01z"></path>
+									</svg>
+									<a href="https://github.com/facebook/flow/releases/tag/v0.41.0" target="_blank">v0.41.0</a>
+								</h3>
+
+								<p>Notable bug fixes:</p>
+								<ul>
+									<li>Lots of improvements to typing React components (which may uncover previously missed errors). This release primarily focused on these tweaks to React typing</li>
+									<li>Previously Flow did not track much about mixins from <code>React.createClass</code> components (including mixed in proptypes). This has been fix and may uncover new proptypes errors in createClass components</li>
+									<li>The internal React libdef for <code>findDOMNode</code> has been updated to include <code>null</code> in its return-type now (since this function can, indeed, return <code>null</code>)</li>
+								</ul>
+
+								<p>Misc:</p>
+								<ul>
+									<li><code>flow get-importers</code> has been removed. It was rarely used and added an incredible amount of complexity to the codebase</li>
+									<li>Lots of updates to builtin flow libs</li>
+								</ul>
+							</div>
+						</section>
+					</article>
+				</section>
+			</div>
+		</section>
+
+		<section class="download"></section>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>
