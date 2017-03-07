@@ -11,7 +11,7 @@
 	--lightest-gray:	#edf2f5;
 	--light-blue:		#0366d6;
 
-	--introduction-height:	98vh;
+	--introduction-height:	95vh;
 	--logo-size:			40px;
 }
 
@@ -54,9 +54,18 @@ a{ color: inherit; }
 }
 
 .introduction{
+	position: sticky;
+	top: 0;
 	height: var(--introduction-height);
 	background-image: linear-gradient(to bottom, #0e1114 10%, #213042 100%);
 	overflow: hidden;
+}
+
+.introduction::after{
+	content: '';
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, .3));
 }
 
 .introduction__container{
@@ -71,6 +80,7 @@ a{ color: inherit; }
 	margin-top: 10%;
 	padding-right: 15px;
 	padding-left: 15px;
+	z-index: 1;
 }
 
 .introduction__title{
@@ -111,7 +121,7 @@ a{ color: inherit; }
 .download{
 	position: relative;
 	overflow: visible;
-	min-height: 200px;
+	min-height: 500px;
 	background-color: #0f1316;
 }
 
