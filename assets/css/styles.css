@@ -38,6 +38,94 @@ h3, h4{ font-weight: 600; }
 
 a{ color: inherit; }
 
+pre, code{
+    background-color: #f8f8f8;
+    border: 1px solid #eaeaea;
+    border-radius: 3px;
+    font-size: inherit;
+    font-family: monospace;
+    color: var(--darker-gray);
+}
+
+pre{
+    display: block;
+    padding: 8px;
+    overflow-x: overlay;
+}
+
+code{
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 2px 4px;
+}
+
+pre > code{
+    margin-left: 0;
+    margin-right: 0;
+    border: none;
+}
+
+pre .comment, pre .quote{
+    color: #998;
+    font-style: italic;
+}
+
+pre .keyword,
+pre .selector-tag,
+pre .subst{
+    color: var(--darker-gray);
+    font-weight: 700;
+}
+
+pre .number,
+pre .literal,
+pre .variable,
+pre .template-variable,
+pre .tag pre .attr{ color: #008080; }
+
+pre .string, pre .doctag{ color: #d14; }
+
+pre .title,
+pre .section,
+pre .selector-id{
+    color: #900;
+    font-weight: 700;
+}
+
+pre .subst{ font-weight: 400; }
+
+pre .type, pre .class pre .title{
+    color: #458;
+    font-weight: 700;
+}
+
+pre .tag,
+pre .name,
+pre .attribute{
+    color: #000080;
+    font-weight: 400;
+}
+
+pre .regexp, pre .link{ color: #009926; }
+
+pre .symbol, pre .bullet{ color: #990073; }
+
+pre .built_in, pre .builtin-name{ color: #0086b3; }
+
+pre .meta{
+    color: #999;
+    font-weight: 700;
+}
+
+pre .addition{ background: #dfd; }
+
+pre .deletion{ background: #fdd; }
+
+pre .emphasis{ font-style: italic; }
+
+pre .strong{ font-weight: 700; }
+
 .button{
     padding: 10px 20px;
     min-width: 200px;
