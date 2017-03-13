@@ -13,7 +13,7 @@
                     </a>
                 </h3>
 
-                <p v-html="value.release.description"></p>
+                <div v-html="value.release.description"></div>
             </div>
         </section>
     </article>
@@ -46,8 +46,6 @@
         padding: 20px;
         background-color: #fff;
         border-radius: 2px;
-        font-size: 1.4rem;
-        color: #444;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
         animation-timing-function: ease-out;
     }
@@ -79,17 +77,16 @@
     }
 
     .release__title{
-        margin-top: 0;
-        margin-bottom: 0;
-        font-size: 2rem;
-        font-weight: 600;
-        line-height: 2;
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.4;
     }
 
     .release__content{
         position: relative;
         height: 100%;
         margin-top: 10px;
+        font-size: 1.3rem;
         background-color: var(--gray);
         overflow-y: overlay;
     }
@@ -102,27 +99,66 @@
         pointer-events: none;
     }
 
-    .release__content h1, .release__content h2, .release__content h3, .release__content h4{ font-weight: 500; }
+    .release__content h1, .release__content h2{
+        margin-top: 1.8rem;
+        margin-bottom: 1.8rem;
+        font-size: 1.7rem;
+    }
+
+    .release__content h2,
+    .release__content h3,
+    .release__content h5{ font-weight: 600; }
+
+    .release__content h3, .release__content h4{ font-size: 1.6rem; }
+
+    .release__content h3{
+        margin-top: 1.4rem;
+        margin-bottom: 1.4rem;
+    }
+
+    .release__content h4, .release__content h6{ font-weight: 500; }
+
+    .release__content h4{
+        margin-top: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .release__content h5, .release__content h6{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+    }
+
+    .release__content ul{ padding-left: 2.2rem; }
 
     .release__content img{
         display: block;
         max-width: 100%;
-        margin: 15px auto;
+        margin: 1.5rem auto;
     }
 
-    .release__content img[align=right]{ margin-left: 15px; }
-    .release__content img[align=left]{ margin-right: 15px; }
+    .release__content img[align=right]{ margin-left: 1.5rem; }
+    .release__content img[align=left]{ margin-right: 1.5rem; }
 
     .release__content__container{
         height: 100%;
-        padding: 20px;
+        padding: 2rem;
+        overflow-x: hidden;
         overflow-y: overlay;
     }
 
+    .release__content__container > div{
+        padding-top: 1rem;
+        border-top: 1px dashed #ddd;
+    }
+
+    .release__content__container > div > :first-child{ margin-top: 0; }
+
+    .release__content__container > div > :last-child{ margin-bottom: 0; }
 
     .release ::-webkit-scrollbar{
-        width: var(--sidebar-size);
-        height: var(--sidebar-size);
+        width: var(--scrollbar-width);
+        height: var(--scrollbar-width);
     }
 
     .release ::-webkit-scrollbar-corner, .release ::-webkit-scrollbar-track{ background-color: transparent; }
@@ -132,8 +168,8 @@
     .release ::-webkit-scrollbar-track:active{ background-color: rgba(0, 0, 0, .15); }
 
     .release ::-webkit-scrollbar-thumb{
-        min-width: 10rem;
-        min-height: 10rem;
+        min-width: var(--scrollbar-length);
+        min-height: var(--scrollbar-length);
         background-color: rgba(0, 0, 0, .2);
         background-clip: padding-box;
         border: 5px solid transparent;

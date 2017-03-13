@@ -5,9 +5,9 @@
                 <h1 class="introduction__title">RealEase</h1>
                 <h2 class="introduction__subtitle">Never miss another release</h2>
 
-                <a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x64.exe" class="button" download>
+                <a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x64.exe" class="button" title="Windows 64 bits (v0.4.1)" download>
                     <svg class="icon--windows" viewBox="0 0 50 50"><path d="M1.589 23.55l-0.017-15.31 18.839-2.558v17.868zM23.55 5.225l25.112-3.654v21.979h-25.112zM48.669 26.69l-0.006 21.979-25.112-3.533v-18.446zM20.41 44.736l-18.824-2.58-0.001-15.466h18.825z"></path></svg>
-                    Download (v0.4.1)
+                    Download
                 </a>
             </header>
 
@@ -60,14 +60,15 @@
         width: 100%;
         margin-left: 10%;
         margin-top: 10%;
-        padding-right: 15px;
-        padding-left: 15px;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        color: #91b2b3;
         z-index: 1;
     }
 
     .introduction__title{
         margin-top: 0;
-        margin-bottom: 25px;
+        margin-bottom: .5rem;
         font-family: 'Muli', sans-serif;
         font-weight: 200;
         font-size: 5.5rem;
@@ -76,7 +77,8 @@
     }
 
     .introduction__subtitle{
-        margin-bottom: 40px;
+        margin-top: 0;
+        margin-bottom: 4rem;
         font-family: 'Muli', sans-serif;
         font-weight: 300;
         font-size: 3rem;
@@ -87,7 +89,7 @@
         width: 100%; height: var(--introduction-height);
         margin-right: 8%;
         padding-top: 5%;
-        padding-right: 20px;
+        padding-right: 2rem;
         perspective: 1000px;
     }
 
@@ -103,6 +105,7 @@
     .introduction__header .button{
         display: inline-flex;
         align-items: center;
+        font-size: 1.8rem;
     }
 
     .introduction__header .button:hover .icon{
@@ -110,8 +113,8 @@
     }
 
     .icon--windows{
-        width: 25px; height: 35px;
-        margin-right: 20px;
+        width: 2.5rem; height: 3.5rem;
+        margin-right: 2.5rem;
         fill: #eee;
     }
 
