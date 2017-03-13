@@ -9,8 +9,7 @@
             </header>
 
             <section class="introduction__content">
-                <Release></Release>
-                <Release></Release>
+                <Release v-for="repository in repositories" :value="repository"></Release>
             </section>
         </div>
     </section>
@@ -22,6 +21,9 @@
 
     export default {
         name: 'introduction',
+        data () {
+            return { repositories: REPOSITORIES }
+        },
         components: { Release }
     }
 </script>

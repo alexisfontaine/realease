@@ -1,35 +1,41 @@
 <template>
     <header>
-        <h4 class="repository__title">
-            <img class="project__logo" src="https://avatars0.githubusercontent.com/u/69631?v=3&s=200" alt="Logo of Facebook">
-            <a href="https://github.com/facebook" target="_blank">facebook</a>
+        <h4 class="repository__title" v-if="value.owner">
+            <img class="project__logo" :src="value.owner.avatarURL" :alt="value.owner.login ? `Logo of ${value.owner.login.charAt(0).toUpperCase() + value.owner.login.slice(1)}` : 'Logo'">
+            <a :href="`https://github.com${value.owner.path}`" target="_blank">{{ value.owner.login }}</a>
             /
-            <a href="https://github.com/facebook/flow" target="_blank">flow</a>
+            <a :href="`https://github.com${value.path}`" target="_blank">{{ value.name }}</a>
         </h4>
 
         <ul class="repository__properties">
-            <li class="repository__property">
-                <span class="language__dot" style="background-color: #3be133;"></span>
-                OCaml
+            <li class="repository__property" v-if="value.language">
+                <span class="language__dot" :style="{ backgroundColor: value.language.color }"></span>
+                {{ value.language.name }}
             </li>
 
             <li class="repository__property">
                 <svg class="icon icon--star" viewBox="0 0 14 16">
                     <path d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path>
                 </svg>
-                10,463
+                {{ value.stargazers | number }}
             </li>
 
-            <li class="repository__property">Updated 59 min ago</li>
+            <li class="repository__property">Updated {{ value.updatedAt | relativeDate }}</li>
         </ul>
 
-        Adds static typing to JavaScript to improve developer productivity and code quality.
+        {{ value.description }}
     </header>
 </template>
 
 <script>
     export default {
-        name: 'repository'
+        name: 'repository',
+        props: {
+            value: {
+                type: Object,
+                required: true
+            }
+        }
     }
 </script>
 
@@ -68,20 +74,9 @@
         border-radius: 50%;
     }
 
-    .icon{
-        height: 18px;
-        fill: #444;
-        vertical-align: middle;
-    }
-
     .icon.icon--star{
         position: relative;
         fill: #ffb700;
         top: -2px;
-    }
-
-    .icon.icon--release{
-        height: 24px;
-        margin-right: 4px;
     }
 </style>

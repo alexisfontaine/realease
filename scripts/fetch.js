@@ -56,19 +56,21 @@ function run () {
 
 			return repository
 		}))
-		.then(repositories => {
-			return new Promise((resolve, reject) => {
-				const output = path.resolve(__dirname, '../public/repositories.json')
-
-				fs.writeFile(output, JSON.stringify(repositories), error => {
-					if (error) return reject(error)
-
-					resolve()
-				})
-			})
+		.catch(error => {
+			console.error(error)
+			process.exit(1)
 		})
-		.catch(console.error)
 }
 
 if (require.main === module) run()
+	.then(repositories => {
+		const output = path.resolve(__dirname, '../public/repositories.json')
+
+		fs.writeFile(output, JSON.stringify(repositories), error => {
+			if (!error) return
+
+			console.error(error)
+			process.exit(1)
+		})
+	})
 else module.exports = run
