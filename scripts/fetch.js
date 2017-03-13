@@ -11,6 +11,7 @@ const fs    = require('fs')
 const https = require('https')
 const path  = require('path')
 
+const markdown     = require('../sources/helpers/markdown.helper')
 const repositories = require('../config/repositories')
 
 
@@ -44,12 +45,16 @@ function run () {
 		request.on('error', error => reject(`${repository}: Error retrieving repository information\n${error.message}`))
 		request.write(data)
 		request.end()
-		})))
+	})))
 		.then(repositories => repositories.map(repository => {
-			repository.release     = repository.releases.nodes[0]
-			repository.release.tag = repository.release.tag.name
+			const release = repository.releases.nodes[0]
+
+			repository.release     = release
 			repository.language    = repository.primaryLanguage
 			repository.stargazers  = repository.stargazers.totalCount
+			repository.description = markdown(repository.description)
+			release.description    = markdown(release.description)
+			release.tag            = release.tag.name
 
 			delete repository.releases
 			delete repository.primaryLanguage

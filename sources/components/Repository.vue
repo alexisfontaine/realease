@@ -23,7 +23,7 @@
             <li class="repository__property">Updated {{ value.updatedAt | relativeDate }}</li>
         </ul>
 
-        {{ value.description }}
+        <div v-html="value.description"></div>
     </header>
 </template>
 

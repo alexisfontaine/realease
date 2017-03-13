@@ -13,7 +13,7 @@
                     </a>
                 </h3>
 
-                {{ value.release.description }}
+                <p v-html="value.release.description"></p>
             </div>
         </section>
     </article>
