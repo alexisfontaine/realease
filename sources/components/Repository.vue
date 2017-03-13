@@ -41,8 +41,7 @@
 
 <style>
     .project__logo{
-        width: var(--logo-size);
-        max-height: var(--logo-size);
+        width: var(--logo-size); height: var(--logo-size);
         margin-right: 10px;
         vertical-align: middle;
         border-radius: 50%;
