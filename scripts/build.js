@@ -40,6 +40,7 @@ require('./fetch')()
 
                 fs.writeFileSync(path.join(publicDirectory, './index.html'), html)
                 shell.cp('-Rf', path.join(rootDirectory, './assets/*'), publicDirectory)
+                shell.mv(path.join(publicDirectory, './images/favicon/favicon.ico'), publicDirectory)
                 shell.rm(bundle)
                 resolve()
             }))
