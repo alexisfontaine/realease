@@ -1,0 +1,75 @@
+*{ box-sizing: border-box; }
+
+::selection{
+    color: #fff;
+    text-shadow: none;
+    background: #262829;
+}
+
+:root{
+    --gray:				#eff3f4;
+    --lightest-gray:	#edf2f5;
+    --light-blue:		#0366d6;
+
+    --logo-size:			40px;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Muli', sans-serif;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    color: #91b2b3;
+}
+
+h3 a, h4 a{ text-decoration: none; }
+
+h3 a:hover, h4 a:hover{ text-decoration: underline; }
+
+h3, h4{ font-weight: 600; }
+
+a{ color: inherit; }
+
+.button{
+    padding: 10px 20px;
+    min-width: 200px;
+    background-color: #29b09c;
+    color: #eee;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 2px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    transition: color .2s, background-color .2s;
+}
+
+.button:hover{
+    color: #fff;
+    background-color: #4dd8c3;
+}
+
+@media screen and (max-width: 1000px){
+    /*TODO: small and medium screen*/
+}
+
+@keyframes flip{
+    0%{ height: 10%; transform: rotateX(270deg) scaleX(.2); }
+    60%{ height: 50%; transform: rotateX(0) scaleX(1); }
+    80%{ transform: translateY(4px); }
+    100%{ transform: translateY(0); }
+}
+
+@keyframes disappear{
+    from{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(10%);
+    }
+}

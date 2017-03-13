@@ -1,0 +1,41 @@
+{
+	"name": "realease",
+	"version": "0.0.1",
+	"description": "Display a feed of the releases of all your starred GitHub repositories",
+	"main": "index.js",
+	"author": "Sheeps",
+	"scripts": {
+		"build": "node ./scripts/build.js",
+		"fetch": "node ./scripts/fetch.js"
+	},
+	"devDependencies": {
+		"autoprefixer": "^6.7.7",
+		"babel-core": "^6.23.1",
+		"babel-loader": "^6.4.0",
+		"babel-preset-env": "^1.2.1",
+		"babel-preset-stage-2": "^6.22.0",
+		"css-loader": "^0.27.2",
+		"shelljs": "^0.7.7",
+		"vue": "^2.2.2",
+		"vue-loader": "^11.1.4",
+		"vue-server-renderer": "^2.2.2",
+		"vue-template-compiler": "^2.2.2",
+		"webpack": "^2.2.1"
+	},
+	"homepage": "https://alexis.github.io/realease",
+	"repository": "alexisfontaine/realease",
+	"license": "ISC",
+	"contributors": [
+		{
+			"name": "Alexis Fontaine",
+			"email": "alexis.fontaine@isep.fr"
+		}
+	],
+	"bugs": {
+		"url": "https://github.com/alexisfontaine/realease/issues"
+	},
+	"engines": {
+		"node": ">= 6.5.0",
+		"npm": ">= 3.10.0"
+	}
+}
