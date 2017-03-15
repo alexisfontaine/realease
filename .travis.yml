@@ -7,3 +7,8 @@ script:
   - npm run build
 after_success:
   - bash ./scripts/deploy.sh
+deploy:
+  provider: surge
+  project: public
+  domain: https://realease.surge.sh
+  skip_cleanup: true
