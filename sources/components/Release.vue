@@ -40,27 +40,21 @@
         display: flex;
         flex-direction: column;
         height: 50%;
+        max-width: 550px;
+        min-height: 250px;
         max-height: 400px;
         margin-bottom: 20px;
         margin-right: 20px;
+        margin-left: 20px;
         padding: 20px;
         background-color: #fff;
         border-radius: 2px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+        animation-duration: .6s;
         animation-timing-function: ease-out;
     }
 
-    .release.add{
-        animation-name: flip;
-        animation-duration: .8s;
-    }
-
-    .release.hide{
-        animation-name: disappear;
-        animation-delay: .6s;
-        animation-duration: .4s;
-        animation-fill-mode: forwards;
-    }
+    .release.flip{ animation-name: flip; }
 
     .release, .release::before{
         transform-style: preserve-3d;

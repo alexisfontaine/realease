@@ -12,7 +12,9 @@
             </header>
 
             <section class="introduction__content">
-                <Release v-for="repository in repositories" :value="repository"></Release>
+				<div id="releases" class="releases">
+                	<Release v-for="repository in repositories" :value="repository"></Release>
+				</div>
             </section>
         </div>
     </section>
@@ -57,7 +59,6 @@
     }
 
     .introduction__header{
-        width: 100%;
         margin-left: 10%;
         margin-top: 10%;
         padding-right: 1.5rem;
@@ -86,11 +87,10 @@
 
     .introduction__content{
         position: relative;
-        width: 100%; height: var(--introduction-height);
+        width: 50%; height: var(--introduction-height);
         margin-right: 8%;
         padding-top: 5%;
         padding-right: 2rem;
-        perspective: 1000px;
     }
 
     .introduction__content::before{
@@ -101,6 +101,18 @@
         background-image: linear-gradient(to bottom, #55c1b1 40%, transparent 100%);
         box-shadow: 0 -10rem 10px rgba(0, 0, 0, .1);
     }
+
+	.releases{
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+        perspective: 1000px;
+		animation-duration: .6s;
+		animation-fill-mode: both;
+		animation-timing-function: ease-out;
+	}
+
+	.releases.translate{ animation-name: translate; }
 
     .introduction__header .button{
         display: inline-flex;
