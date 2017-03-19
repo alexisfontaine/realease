@@ -54,15 +54,19 @@ function run () {
 				repository.language    = repository.primaryLanguage
 				repository.stargazers  = repository.stargazers.totalCount
 				repository.description = markdown(repository.description)
+				repository.updatedAt   = new Date(repository.updatedAt)
+				repository.publishedAt = new Date(release.publishedAt)
 				release.description    = markdown(release.description)
 				release.tag            = release.tag.name
 
 				delete repository.releases
 				delete repository.primaryLanguage
+				delete release.publishedAt
 
 				return repository
 			})
-			.sort((a, b) => new Date(a.release.publishedAt) - new Date(b.release.publishedAt))
+			.filter(repository => repository.publishedAt > Date.now() - 2592000000)
+			.sort((a, b) => a.publishedAt - b.publishedAt)
 		)
 		.catch(error => {
 			console.error(error)
