@@ -65,7 +65,6 @@ let timer = null
 export default (value, onlyTime = true, nextTick) => {
 	if (!value) return
 
-
 	let secondes	= (Date.now() - new Date(value)) / 1000
 	let term		= null
 	let prefix		= ''

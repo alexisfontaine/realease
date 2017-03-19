@@ -29,7 +29,7 @@ const options = {
 
 function run () {
 	return Promise.all(repositories.map(repository => new Promise((resolve, reject) => {
-		const data           = JSON.stringify({ query: `query{repository(owner:"${repository.split('/').join('"name:"')}"){owner{avatarURL login path}releases(last:1){nodes{tag{name}name description}}primaryLanguage{name color}stargazers{totalCount}name path updatedAt homepageURL description}}` })
+		const data           = JSON.stringify({ query: `query{repository(owner:"${repository.split('/').join('"name:"')}"){owner{avatarURL login path}releases(last:1){nodes{tag{name}name description publishedAt}}primaryLanguage{name color}stargazers{totalCount}name path updatedAt homepageURL description}}` })
 		const requestHeaders = Object.assign({ 'Content-Length': data.length }, headers)
 		const requestOptions = Object.assign({ headers: requestHeaders }, options)
 
@@ -46,21 +46,24 @@ function run () {
 		request.write(data)
 		request.end()
 	})))
-		.then(repositories => repositories.map(repository => {
-			const release = repository.releases.nodes[0]
+		.then(repositories => repositories
+			.map(repository => {
+				const release = repository.releases.nodes[0]
 
-			repository.release     = release
-			repository.language    = repository.primaryLanguage
-			repository.stargazers  = repository.stargazers.totalCount
-			repository.description = markdown(repository.description)
-			release.description    = markdown(release.description)
-			release.tag            = release.tag.name
+				repository.release     = release
+				repository.language    = repository.primaryLanguage
+				repository.stargazers  = repository.stargazers.totalCount
+				repository.description = markdown(repository.description)
+				release.description    = markdown(release.description)
+				release.tag            = release.tag.name
 
-			delete repository.releases
-			delete repository.primaryLanguage
+				delete repository.releases
+				delete repository.primaryLanguage
 
-			return repository
-		}))
+				return repository
+			})
+			.sort((a, b) => new Date(a.release.publishedAt) - new Date(b.release.publishedAt))
+		)
 		.catch(error => {
 			console.error(error)
 			process.exit(1)

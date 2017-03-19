@@ -20,7 +20,10 @@
                 {{ value.stargazers | number }}
             </li>
 
-            <li class="repository__property">Updated {{ value.updatedAt | relativeDate }}</li>
+            <li class="repository__property" v-if="value.release">
+				Published
+				{{ value.release.publishedAt | relativeDate }}
+			</li>
         </ul>
 
         <div v-html="value.description"></div>
