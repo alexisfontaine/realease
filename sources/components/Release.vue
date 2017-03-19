@@ -39,7 +39,7 @@
     .release{
         display: flex;
         flex-direction: column;
-        height: 50%;
+        width: 100%; height: 50%;
         max-width: 550px;
         min-height: 250px;
         max-height: 400px;

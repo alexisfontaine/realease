@@ -1,4 +1,13 @@
 [
     "electron/electron",
-    "vuejs/vue"
+    "babel/babel",
+    "vuejs/vue",
+	"webpack/webpack",
+	"zeit/hyper",
+	"Microsoft/TypeScript",
+	"npm/npm",
+	"docker/docker",
+	"atom/atom",
+	"postcss/autoprefixer",
+	"facebook/react"
 ]
