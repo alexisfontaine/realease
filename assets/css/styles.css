@@ -30,13 +30,26 @@ body{
     color: var(--dark-gray);
 }
 
-h3 a, h4 a{ text-decoration: none; }
+h3 a, h4 a, .link{ text-decoration: none; }
 
-h3 a:hover, h4 a:hover{ text-decoration: underline; }
+h3 a:hover, h4 a:hover, .link:hover{ text-decoration: underline; }
 
 h3, h4{ font-weight: 600; }
 
 a{ color: inherit; }
+
+a.disabled{
+	color: #444;
+	cursor: default;
+	pointer-events: none;
+}
+
+a.disabled:hover{ text-decoration: none; }
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
 
 pre, code{
     background-color: #f8f8f8;
@@ -125,6 +138,29 @@ pre .deletion{ background: #fdd; }
 pre .emphasis{ font-style: italic; }
 
 pre .strong{ font-weight: 700; }
+
+.container{
+	max-width: 880px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+.container h2{
+	margin-top: 0;
+	font-family: 'Muli', sans-serif;
+	font-size: 3rem;
+	font-weight: 300;
+	color: #91b2b3;
+}
+
+.link{
+	color: #29b09c;
+	transition: color .2s;
+}
+
+.link:hover{ color: #4dd8c3; }
 
 .button{
     padding: 10px 20px;

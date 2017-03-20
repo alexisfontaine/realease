@@ -1,5 +1,71 @@
 <template>
-    <section class="download"></section>
+    <section class="download">
+		<div class="container">
+			<h2 id="downloads">Downloads</h2>
+
+			<table>
+				<tbody>
+					<tr>
+						<td></td>
+						<td>32-bit</td>
+						<td>64-bit</td>
+					</tr>
+					<tr>
+						<td><b>macOS</b> (.dmg)</td>
+						<td></td>
+						<td>
+							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x64.dmg" class="link" download>Download</a>
+						</td>
+					</tr>
+					<tr>
+						<td><b>Windows</b> (.exe)</td>
+						<td>
+							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x86.exe" class="link" download>Download</a>
+						</td>
+						<td>
+							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x64.exe" class="link" download>Download</a>
+						</td>
+					</tr>
+					<tr>
+						<td><b>Windows</b> (.zip)</td>
+						<td>
+							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-win32-x86.zip" class="link" download>Download</a>
+						</td>
+						<td>
+							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-win32-x64.zip" class="link" download>Download</a>
+						</td>
+					</tr>
+					<tr>
+						<td><b>Debian</b> (.deb)</td>
+						<td>
+							<a href="#" class="link disabled">Coming soon</a>
+						</td>
+						<td>
+							<a href="#" class="link disabled">Coming soon</a>
+						</td>
+					</tr>
+					<tr>
+						<td><b>Fedora</b> (.rpm)</td>
+						<td>
+							<a href="#" class="link disabled">Coming soon</a>
+						</td>
+						<td>
+							<a href="#" class="link disabled">Coming soon</a>
+						</td>
+					</tr>
+					<tr>
+						<td><b>Other Linux</b> (.AppImage)</td>
+						<td>
+							<a href="#" class="link disabled">Coming soon</a>
+						</td>
+						<td>
+							<a href="#" class="link disabled">Coming soon</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
 </template>
 
 <script>
@@ -9,19 +75,35 @@
 </script>
 
 <style>
-    .download{
-        position: relative;
-        overflow: visible;
-        min-height: 500px;
-        background-color: #0f1316;
-    }
+	.download{
+		position: relative;
+		background-color: #0f1316;
+		overflow: visible;
+		z-index: 0;
+	}
 
-    .download::before{
-        content: '';
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        background-color: inherit;
-        transform-origin: 0;
-        transform: skewY(-2deg);
-    }
+	.download::before{
+		content: '';
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		background-color: inherit;
+		transform-origin: 0;
+		transform: skewY(-2deg);
+		z-index: -1;
+	}
+
+	.download table{ color: #fff; }
+
+	.download td{
+		width: 33.33333%;
+		padding-right: 15px;
+		padding-left: 15px;
+		line-height: 2.6;
+	}
+
+	.download td:not(:first-child){ text-align: center; }
+
+	.download td:not(:empty){ border: 1px solid #444; }
+
+	.download table .link{ text-transform: uppercase; }
 </style>

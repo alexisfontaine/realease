@@ -5,10 +5,11 @@
                 <h1 class="introduction__title">RealEase</h1>
                 <h2 class="introduction__subtitle">Never miss another release</h2>
 
-                <a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x64.exe" class="button" title="Windows 64 bits (v0.4.1)" download>
+                <a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x64.exe" class="button" title="Windows 64-bit .exe (v0.4.1)" download>
                     <svg class="icon--windows" viewBox="0 0 50 50"><path d="M1.589 23.55l-0.017-15.31 18.839-2.558v17.868zM23.55 5.225l25.112-3.654v21.979h-25.112zM48.669 26.69l-0.006 21.979-25.112-3.533v-18.446zM20.41 44.736l-18.824-2.58-0.001-15.466h18.825z"></path></svg>
                     Download
                 </a>
+				<a href="#downloads" class="link">Other platforms</a>
             </header>
 
             <section class="introduction__content">
@@ -59,6 +60,10 @@
     }
 
     .introduction__header{
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
         margin-left: 10%;
         margin-top: 10%;
         padding-right: 1.5rem;
@@ -66,6 +71,8 @@
         color: #91b2b3;
         z-index: 1;
     }
+
+	.introduction__header .link{ line-height: 2.2rem; }
 
     .introduction__title{
         margin-top: 0;
@@ -120,9 +127,7 @@
         font-size: 1.8rem;
     }
 
-    .introduction__header .button:hover .icon{
-        fill: #fff;
-    }
+    .introduction__header .button:hover .icon{ fill: #fff; }
 
     .icon--windows{
         width: 2.5rem; height: 3.5rem;
