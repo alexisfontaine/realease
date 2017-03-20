@@ -27,6 +27,14 @@ const options = {
 	method: 'POST'
 }
 
+function uniqueAnchor (string, { owner, name }) {
+	const prefix = `${owner.login}-${name}-`
+
+	return string
+		.replace(/id="([^"]+)"/g, `id="${prefix}$1"`)
+		.replace(/href="#([^"]+)"/g, `href="#${prefix}$1"`)
+}
+
 function run () {
 	return Promise.all(repositories.map(repository => new Promise((resolve, reject) => {
 		const data           = JSON.stringify({ query: `query{repository(owner:"${repository.split('/').join('"name:"')}"){owner{avatarURL login path}releases(last:1){nodes{tag{name}name description publishedAt}}primaryLanguage{name color}stargazers{totalCount}name path updatedAt homepageURL description}}` })
@@ -56,7 +64,7 @@ function run () {
 				repository.description = markdown(repository.description)
 				repository.updatedAt   = new Date(repository.updatedAt)
 				repository.publishedAt = new Date(release.publishedAt)
-				release.description    = markdown(release.description)
+				release.description    = uniqueAnchor(markdown(release.description), repository)
 				release.tag            = release.tag.name
 
 				delete repository.releases
