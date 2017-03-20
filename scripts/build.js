@@ -3,6 +3,7 @@ const path     = require('path')
 const webpack  = require('webpack')
 const renderer = require('vue-server-renderer')
 const shell    = require('shelljs')
+const minify   = require('./commons/minifier')
 
 
 const rootDirectory   = path.resolve(__dirname, '..')
@@ -38,7 +39,7 @@ require('./fetch')()
             .renderToString((error, html) => {
                 if (error) return reject(error)
 
-                fs.writeFileSync(path.join(publicDirectory, './index.html'), html)
+                fs.writeFileSync(path.join(publicDirectory, './index.html'), minify(html))
                 shell.cp('-Rf', path.join(rootDirectory, './assets/*'), publicDirectory)
                 shell.mv(path.join(publicDirectory, './images/favicon/favicon.ico'), publicDirectory)
                 shell.rm(bundle)
