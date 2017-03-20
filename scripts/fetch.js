@@ -35,6 +35,10 @@ function uniqueAnchor (string, { owner, name }) {
 		.replace(/href="#([^"]+)"/g, `href="#${prefix}$1"`)
 }
 
+function hyperlinkTarget (string) {
+	return string.replace(/(href="https?:\/\/[^"]+")/g, '$1 target="_blank"')
+}
+
 function run () {
 	return Promise.all(repositories.map(repository => new Promise((resolve, reject) => {
 		const data           = JSON.stringify({ query: `query{repository(owner:"${repository.split('/').join('"name:"')}"){owner{avatarURL login path}releases(last:1){nodes{tag{name}name description publishedAt}}primaryLanguage{name color}stargazers{totalCount}name path updatedAt homepageURL description}}` })
@@ -64,7 +68,7 @@ function run () {
 				repository.description = markdown(repository.description)
 				repository.updatedAt   = new Date(repository.updatedAt)
 				repository.publishedAt = new Date(release.publishedAt)
-				release.description    = uniqueAnchor(markdown(release.description), repository)
+				release.description    = hyperlinkTarget(uniqueAnchor(markdown(release.description), repository))
 				release.tag            = release.tag.name
 
 				delete repository.releases
