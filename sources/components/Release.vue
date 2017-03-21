@@ -78,11 +78,10 @@
 
     .release__content{
         position: relative;
-        height: 100%;
+        display: inherit;
         margin-top: 10px;
         font-size: 1.3rem;
         background-color: var(--gray);
-        overflow-y: overlay;
     }
 
     .release__content::after{
@@ -135,7 +134,6 @@
     .release__content img[align=left]{ margin-right: 1.5rem; }
 
     .release__content__container{
-        height: 100%;
         padding: 2rem;
         overflow-x: hidden;
         overflow-y: overlay;
