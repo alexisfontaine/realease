@@ -69,7 +69,7 @@ function run () {
 				repository.updatedAt   = new Date(repository.updatedAt)
 				repository.publishedAt = new Date(release.publishedAt)
 				release.description    = hyperlinkTarget(uniqueAnchor(markdown(release.description), repository))
-				release.tag            = release.tag.name
+				release.tag            = release.tag && release.tag.name
 
 				delete repository.releases
 				delete repository.primaryLanguage
