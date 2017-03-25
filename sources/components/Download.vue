@@ -77,8 +77,8 @@
 <style>
 	.download{
 		position: relative;
-		background-color: #0f1316;
 		overflow: visible;
+		background-color: var(--dark-blue);
 		z-index: 0;
 	}
 

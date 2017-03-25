@@ -81,7 +81,7 @@
         font-weight: 200;
         font-size: 5.5rem;
         letter-spacing: .5rem;
-        color: #d5f9f3;
+        color: var(--lighter-green);
     }
 
     .introduction__subtitle{
