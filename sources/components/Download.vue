@@ -38,28 +38,28 @@
 					<tr>
 						<td><b>Debian</b> (.deb)</td>
 						<td>
-							<a href="#" class="link disabled">Coming soon</a>
+							<a class="link disabled">Coming soon</a>
 						</td>
 						<td>
-							<a href="#" class="link disabled">Coming soon</a>
+							<a class="link disabled">Coming soon</a>
 						</td>
 					</tr>
 					<tr>
 						<td><b>Fedora</b> (.rpm)</td>
 						<td>
-							<a href="#" class="link disabled">Coming soon</a>
+							<a class="link disabled">Coming soon</a>
 						</td>
 						<td>
-							<a href="#" class="link disabled">Coming soon</a>
+							<a class="link disabled">Coming soon</a>
 						</td>
 					</tr>
 					<tr>
 						<td><b>Other Linux</b> (.AppImage)</td>
 						<td>
-							<a href="#" class="link disabled">Coming soon</a>
+							<a class="link disabled">Coming soon</a>
 						</td>
 						<td>
-							<a href="#" class="link disabled">Coming soon</a>
+							<a class="link disabled">Coming soon</a>
 						</td>
 					</tr>
 				</tbody>
@@ -82,14 +82,18 @@
 		z-index: 0;
 	}
 
-	.download::before{
+	.download::before, .download::after{
 		content: '';
 		position: absolute;
 		top: 0; right: 0; bottom: 0; left: 0;
 		background-color: inherit;
+		z-index: -1;
+	}
+
+	.download::before{
 		transform-origin: top right;
 		transform: skewY(2deg);
-		z-index: -1;
+		box-shadow: 0 0 200px rgba(0, 0, 0, .3);
 	}
 
 	.download .container{ padding-top: .6vw; }
