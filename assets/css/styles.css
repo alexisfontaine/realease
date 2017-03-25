@@ -183,7 +183,7 @@ pre .strong{ font-weight: 700; }
     text-decoration: none;
     border-radius: 2px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-    transition: color .2s, background-color .2s;
+    transition: color .2s, background-color .3s;
 }
 
 .button:hover{

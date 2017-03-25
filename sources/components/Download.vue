@@ -87,10 +87,12 @@
 		position: absolute;
 		top: 0; right: 0; bottom: 0; left: 0;
 		background-color: inherit;
-		transform-origin: 0;
-		transform: skewY(-2deg);
+		transform-origin: top right;
+		transform: skewY(2deg);
 		z-index: -1;
 	}
+
+	.download .container{ padding-top: .6vw; }
 
 	.download table{ color: #fff; }
 

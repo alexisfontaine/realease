@@ -72,7 +72,7 @@
         z-index: 1;
     }
 
-	.introduction__header .link{ line-height: 2.2rem; }
+	.introduction__header .link{ line-height: 3rem; }
 
     .introduction__title{
         margin-top: 0;
@@ -127,12 +127,13 @@
         font-size: 1.8rem;
     }
 
-    .introduction__header .button:hover .icon{ fill: #fff; }
+    .introduction__header .button:hover .icon--windows{ fill: #fff; }
 
     .icon--windows{
         width: 2.5rem; height: 3.5rem;
         margin-right: 2.5rem;
         fill: #eee;
+		transition: fill .2s;
     }
 
     @media screen and (max-width: 1100px){
