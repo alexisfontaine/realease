@@ -134,6 +134,7 @@
     .release__content img[align=left]{ margin-right: 1.5rem; }
 
     .release__content__container{
+		width: 100%;
         padding: 2rem;
         overflow-x: hidden;
         overflow-y: overlay;
