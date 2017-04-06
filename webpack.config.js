@@ -1,8 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
 
+
+const sourcesDirectory = path.resolve(__dirname, './sources')
+
 module.exports = {
-    entry: path.resolve(__dirname, './sources/index.js'),
+    entry: path.join(sourcesDirectory, './index.js'),
     target: 'node',
     output: {
         libraryTarget: 'commonjs2',
@@ -21,15 +24,12 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    postcss: [require('autoprefixer')({ browsers: ['last 3 versions'] })]
-                }
+                loader: 'vue-loader'
             },
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                include: path.resolve(__dirname, './sources'),
+                include: sourcesDirectory,
                 exclude: /node_modules\//,
             }
         ]
