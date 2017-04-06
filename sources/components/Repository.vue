@@ -22,7 +22,7 @@
 
             <li class="repository__property" v-if="value.publishedAt">
 				Published
-				{{ value.publishedAt | relativeDate }}
+				<span :data-date="value.publishedAt"></span>
 			</li>
         </ul>
 
