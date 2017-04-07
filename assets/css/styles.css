@@ -232,3 +232,12 @@ pre .strong{ font-weight: 700; }
         transform: translateY(10%);
     }
 }
+
+@keyframes heartbeat{
+  0%{ transform: scale(1); }
+  50%{ transform: scale(1); }
+  62.5%{ transform: scale(1.25); }
+  75%{ transform: scale(1); }
+  87.5%{ transform: scale(1.25); }
+  100%{ transform: scale(1); }
+}

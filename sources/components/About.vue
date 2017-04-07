@@ -21,11 +21,13 @@
 	}
 
 	.heart{
+		display: inline-block;
 		margin-right: 3px;
 		margin-left: 3px;
 		font-size: 1.8rem;
 		color: var(--red);
 		font-style: normal;
+		animation: heartbeat 2s infinite;
 	}
 
 	.heart::before{ content: '❤'; }
