@@ -7,8 +7,8 @@ TARGET_BRANCH="gh-pages"
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ];
 then
-  echo "This commit was made against the $TRAVIS_BRANCH and not the $SOURCE_BRANCH!"
-  exit 0
+	echo "This commit was made against the $TRAVIS_BRANCH and not the $SOURCE_BRANCH!"
+	exit 0
 fi
 
 REPOSITORY=`git config remote.origin.url`
