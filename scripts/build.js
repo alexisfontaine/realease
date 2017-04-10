@@ -14,13 +14,16 @@ shell.mkdir(publicDirectory)
 
 require('./fetch')()
     .then(repositories => {
-        const configuration = require('../webpack.config')
+        const configurations = require('../webpack.config')
+		const plugin         = new webpack.DefinePlugin({ REPOSITORIES: JSON.stringify(repositories) })
 
-        configuration.plugins.push(new webpack.DefinePlugin({
-            REPOSITORIES: JSON.stringify(repositories)
-        }))
+        configurations.map(configuration => {
+			configuration.plugins.push(plugin)
 
-        return new Promise((resolve, reject) => webpack(configuration, (error, stats) => {
+			return configuration
+		})
+
+        return new Promise((resolve, reject) => webpack(configurations, (error, stats) => {
             if (error) return reject(error)
             if (stats.hasErrors()) return reject(stats.toJson().errors)
 

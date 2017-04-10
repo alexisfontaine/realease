@@ -74,7 +74,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
 	.download{
 		position: relative;
 		overflow: visible;

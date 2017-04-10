@@ -1,5 +1,12 @@
 {
-    "presets": [["env", { "modules": false }], "stage-2"],
-    "comments":	false,
-    "compact":	true
+	"presets":  [
+		["env", {
+			"targets":     ["last 2 versions", "> 5%"],
+			"useBuiltIns": true,
+			"modules":     false
+		}],
+		"stage-2"
+	],
+	"comments": false,
+	"compact":  true
 }

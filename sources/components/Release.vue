@@ -35,7 +35,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     .release{
         display: flex;
         flex-direction: column;

@@ -42,7 +42,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     .project__logo{
         width: var(--logo-size); height: var(--logo-size);
         margin-right: 10px;

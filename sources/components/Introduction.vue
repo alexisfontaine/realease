@@ -34,7 +34,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     .introduction{
         --introduction-height: 95vh;
 

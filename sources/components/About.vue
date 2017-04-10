@@ -11,7 +11,7 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.footer{
 		position: relative;
 		line-height: 5rem;
