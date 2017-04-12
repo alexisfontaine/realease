@@ -26,8 +26,7 @@ const rules = [{
 }]
 
 const plugins = [
-	new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
-	new BabiliPlugin()
+	new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' })
 ]
 
 module.exports = [
@@ -42,7 +41,7 @@ module.exports = [
 		},
 		resolve: { alias },
 		module:  { rules },
-		plugins
+		plugins: plugins.concat([new webpack.optimize.UglifyJsPlugin()])
 	},
 	{
 		entry: {
@@ -102,7 +101,8 @@ module.exports = [
 		},
 		plugins: plugins.concat([
 			new ExtractTextPlugin('styles.css'),
-			new OptimizeCssAssetsPlugin({ canPrint: false })
+			new OptimizeCssAssetsPlugin({ canPrint: false }),
+			new BabiliPlugin()
 		])
 	}
 ]

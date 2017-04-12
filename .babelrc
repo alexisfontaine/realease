@@ -1,12 +1,9 @@
 {
 	"presets":  [
 		["env", {
-			"targets":     ["last 2 versions", "> 5%"],
-			"useBuiltIns": true,
-			"modules":     false
+			"targets": ["last 2 versions", "> 5%"],
+			"modules": false
 		}],
 		"stage-2"
-	],
-	"comments": false,
-	"compact":  true
+	]
 }
