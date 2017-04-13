@@ -1,25 +1,6 @@
-:root{
-	--darker-gray:   #333;
-	--dark-gray:     #444;
-	--gray:          #eff3f4;
-	--lightest-gray: #edf2f5;
-	--light-blue:    #0366d6;
-	--red:           #bd0000;
-	--dark-blue:     #0f1316;
-	--darker-blue:   #070a0b;
-	--green:         #29b09c;
-	--light-green: 	 #4dd8c3;
-	--lighter-green: #d5f9f3;
+@import 'colors';
+@import 'base';
 
-	--background-color:       var(--darker-blue);
-	--highlight-color:        var(--green);
-	--highlight-color-hover:  var(--light-green);
-
-	--font-size:        1.4rem;
-	--scrollbar-width:  var(--font-size);
-	--scrollbar-length: 5rem;
-	--logo-size:        40px;
-}
 
 ::selection{
 	color: #fff;
@@ -35,12 +16,12 @@ body{
 	height: 100vh;
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
-	font-size: var(--font-size);
+	font-size: $font-size;
 	line-height: 1.6;
-	color: var(--dark-gray);
+	color: $dark-gray;
 }
 
-main{ background-color: var(--background-color); }
+main{ background-color: $background-color; }
 
 h3 a, h4 a, .link{ text-decoration: none; }
 
@@ -69,7 +50,7 @@ pre, code{
 	border-radius: 3px;
 	font-size: inherit;
 	font-family: monospace;
-	color: var(--darker-gray);
+	color: $darker-gray;
 }
 
 pre{
@@ -99,7 +80,7 @@ pre .comment, pre .quote{
 pre .keyword,
 pre .selector-tag,
 pre .subst{
-	color: var(--darker-gray);
+	color: $darker-gray;
 	font-weight: 700;
 }
 
@@ -168,16 +149,16 @@ pre .strong{ font-weight: 700; }
 }
 
 .link{
-	color: var(--highlight-color);
+	color: $highlight-color;
 	transition: color .2s;
 }
 
-.link:hover{ color: var(--highlight-color-hover); }
+.link:hover{ color: $highlight-color-hover; }
 
 .button{
 	padding: 10px 20px;
 	min-width: 200px;
-	background-color: var(--highlight-color);
+	background-color: $highlight-color;
 	color: #eee;
 	text-align: center;
 	text-decoration: none;
@@ -188,7 +169,7 @@ pre .strong{ font-weight: 700; }
 
 .button:hover{
 	color: #fff;
-	background-color: var(--highlight-color-hover);
+	background-color: $highlight-color-hover;
 }
 
 .icon{

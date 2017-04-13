@@ -36,6 +36,10 @@
 </script>
 
 <style lang="scss">
+	@import 'colors';
+	@import 'base';
+
+
 	.release{
 		display: flex;
 		flex-direction: column;
@@ -81,14 +85,15 @@
 		display: inherit;
 		margin-top: 10px;
 		font-size: 1.3rem;
-		background-color: var(--gray);
+		background-color: $gray;
+		overflow-y: auto;
 	}
 
 	.release__content::after{
 		content: '';
 		position: absolute;
 		top: 0; left: 0; right: 0; bottom: 0;
-		box-shadow: inset 10px 0 12px 4px var(--gray);
+		box-shadow: inset 10px 0 12px 4px $gray;
 		pointer-events: none;
 	}
 
@@ -137,6 +142,7 @@
 		width: 100%;
 		padding: 2rem;
 		overflow-x: hidden;
+		overflow-y: auto;
 		overflow-y: overlay;
 	}
 
@@ -150,8 +156,8 @@
 	.release__content__container > div > :last-child{ margin-bottom: 0; }
 
 	.release ::-webkit-scrollbar{
-		width: var(--scrollbar-width);
-		height: var(--scrollbar-width);
+		width: $scrollbar-width;
+		height: $scrollbar-width;
 	}
 
 	.release ::-webkit-scrollbar-corner, .release ::-webkit-scrollbar-track{ background-color: transparent; }
@@ -161,8 +167,8 @@
 	.release ::-webkit-scrollbar-track:active{ background-color: rgba(0, 0, 0, .15); }
 
 	.release ::-webkit-scrollbar-thumb{
-		min-width: var(--scrollbar-length);
-		min-height: var(--scrollbar-length);
+		min-width: $scrollbar-length;
+		min-height: $scrollbar-length;
 		background-color: rgba(0, 0, 0, .2);
 		background-clip: padding-box;
 		border: 5px solid transparent;

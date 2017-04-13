@@ -43,8 +43,13 @@
 </script>
 
 <style lang="scss">
+	@import 'colors';
+
+
+	$logo-size: 40px;
+
 	.project__logo{
-		width: var(--logo-size); height: var(--logo-size);
+		width: $logo-size; height: $logo-size;
 		margin-right: 10px;
 		vertical-align: middle;
 		border-radius: 50%;
@@ -55,8 +60,8 @@
 		margin-top: 0;
 		margin-bottom: 0;
 		font-size: 2rem;
-		line-height: var(--logo-size);
-		color: var(--light-blue);
+		line-height: $logo-size;
+		color: $light-blue;
 	}
 
 	.repository__properties{

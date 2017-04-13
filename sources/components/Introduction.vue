@@ -35,12 +35,15 @@
 </script>
 
 <style lang="scss">
-	.introduction{
-		--introduction-height: 95vh;
+	@import 'colors';
 
+
+	$introduction-height: 95vh;
+
+	.introduction{
 		position: sticky;
 		top: 0;
-		height: var(--introduction-height);
+		height: $introduction-height;
 		background-image: linear-gradient(to bottom, #0e1114 10%, #213042 100%);
 		overflow: hidden;
 	}
@@ -65,23 +68,21 @@
 		justify-content: flex-start;
 		align-items: flex-start;
 		margin-left: 10%;
-		margin-top: 10%;
 		padding-right: 1.5rem;
 		padding-left: 1.5rem;
 		color: #91b2b3;
-		z-index: 1;
 	}
 
 	.introduction__header .link{ line-height: 3rem; }
 
 	.introduction__title{
-		margin-top: 0;
+		margin-top: 20vh;
 		margin-bottom: .5rem;
 		font-family: 'Muli', sans-serif;
 		font-weight: 200;
 		font-size: 5.5rem;
 		letter-spacing: .5rem;
-		color: var(--lighter-green);
+		color: $lighter-green;
 	}
 
 	.introduction__subtitle{
@@ -94,9 +95,8 @@
 
 	.introduction__content{
 		position: relative;
-		width: 50%; height: var(--introduction-height);
+		width: 50%; height: $introduction-height;
 		margin-right: 8%;
-		padding-top: 5%;
 		padding-right: 2rem;
 	}
 
@@ -110,6 +110,8 @@
 	}
 
 	.releases{
+		position: relative;
+		top: 10%;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;

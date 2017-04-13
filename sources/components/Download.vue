@@ -75,10 +75,13 @@
 </script>
 
 <style lang="scss">
+	@import 'colors';
+
+
 	.download{
 		position: relative;
 		overflow: visible;
-		background-color: var(--dark-blue);
+		background-color: $dark-blue;
 		z-index: 0;
 	}
 

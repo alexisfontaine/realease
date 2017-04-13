@@ -9,9 +9,15 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const sourcesDirectory = path.resolve(__dirname, './sources')
 const publicDirectory  = path.resolve(__dirname, './public')
 const assetsDirectory  = path.join(sourcesDirectory, './assets')
+const stylesDirectory  = path.join(assetsDirectory, './scss')
 
 const cssLoaders  = ['css-loader', 'postcss-loader']
-const sassLoaders = cssLoaders.concat(['sass-loader'])
+const sassLoaders = cssLoaders.concat([{
+	loader: 'sass-loader',
+	options: {
+		includePaths: [stylesDirectory]
+	}
+}])
 
 const alias = {
 	sources: sourcesDirectory,
@@ -46,7 +52,7 @@ module.exports = [
 	{
 		entry: {
 			bundle: [
-				path.join(assetsDirectory, './scss/styles.scss'),
+				path.join(stylesDirectory, './styles.scss'),
 				path.join(sourcesDirectory, './index.js')
 			]
 		},
