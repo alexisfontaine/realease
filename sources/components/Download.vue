@@ -69,9 +69,7 @@
 </template>
 
 <script>
-    export default {
-        name: 'download'
-    }
+	export default { name: 'download' }
 </script>
 
 <style lang="scss">
