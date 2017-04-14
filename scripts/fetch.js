@@ -35,7 +35,7 @@ function uniqueAnchor (string, { owner, name }) {
 		.replace(/href="#([^"]+)"/g, `href="#${prefix}$1"`)
 }
 
-function hyperlinkTarget (string) {
+function addHyperlinkTarget (string) {
 	return string.replace(/(href="https?:\/\/[^"]+")/g, '$1 target="_blank"')
 }
 
@@ -65,10 +65,10 @@ function run () {
 				repository.release     = release
 				repository.language    = repository.primaryLanguage
 				repository.stargazers  = repository.stargazers.totalCount
-				repository.description = markdown(repository.description)
 				repository.updatedAt   = new Date(repository.updatedAt)
 				repository.publishedAt = new Date(release.publishedAt)
-				release.description    = hyperlinkTarget(uniqueAnchor(markdown(release.description), repository))
+				repository.description = addHyperlinkTarget(markdown(repository.description))
+				release.description    = addHyperlinkTarget(uniqueAnchor(markdown(release.description), repository))
 				release.tag            = release.tag && release.tag.name
 
 				delete repository.releases
