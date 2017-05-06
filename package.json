@@ -37,7 +37,7 @@
 		"vue-template-compiler": "^2.3.2",
 		"webpack": "^2.5.0"
 	},
-	"homepage": "https://alexis.github.io/realease",
+	"homepage": "https://realease.surge.sh",
 	"repository": "alexisfontaine/realease",
 	"license": "ISC",
 	"contributors": [
