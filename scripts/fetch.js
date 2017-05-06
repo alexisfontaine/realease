@@ -11,9 +11,11 @@ const fs    = require('fs')
 const https = require('https')
 const path  = require('path')
 
-const markdown     = require('../sources/helpers/markdown.helper')
-const repositories = require('../config/repositories')
+const markdown      = require('../sources/helpers/markdown.helper')
+const configuration = require('../configuration')
 
+
+const lastMonth = Date.now() - 2592000000
 
 const headers = {
 	Authorization: `Bearer ${accessToken}`,
@@ -40,27 +42,37 @@ function addHyperlinkTarget (string) {
 }
 
 function run () {
-	return Promise.all(repositories.map(repository => new Promise((resolve, reject) => {
-		const data           = JSON.stringify({ query: `query{repository(owner:"${repository.split('/').join('"name:"')}"){owner{avatarUrl login path}releases(last:1){nodes{tag{name}name description publishedAt}}primaryLanguage{name color}stargazers{totalCount}name path updatedAt homepageUrl description}}` })
-		const requestHeaders = Object.assign({ 'Content-Length': data.length }, headers)
-		const requestOptions = Object.assign({ headers: requestHeaders }, options)
+	return Promise.all([
+		new Promise((resolve, reject) => {
+			const data           = JSON.stringify({ query: `{nodes(ids:["${configuration.repositories.join('", "')}"]){...on Repository{owner{avatarUrl login path}releases(last:1){nodes{tag{name}name description publishedAt}}primaryLanguage{name color}stargazers{totalCount}name path updatedAt homepageUrl description}}}` })
+			const requestHeaders = Object.assign({ 'Content-Length': data.length }, headers)
+			const requestOptions = Object.assign({ headers: requestHeaders }, options)
 
-		const request = https.request(requestOptions, response => {
-			response.body = ''
-			response.setEncoding('utf8')
-			response.on('data', chunk => response.body += chunk)
-			response.on('end', response.statusCode === 200
-				? () => resolve(JSON.parse(response.body).data.repository)
-				: () => reject(`${repository}: GitHub GraphQL API returned ${response.statusCode} status code\n${response.body}`))
+			const request = https.request(requestOptions, response => {
+				response.body = ''
+				response.setEncoding('utf8')
+				response.on('data', chunk => response.body += chunk)
+				response.on('end', () => {
+					const body = JSON.parse(response.body)
+
+					if (response.statusCode < 400 && !body.errors) return resolve(JSON.parse(response.body).data.nodes)
+
+					reject(`GitHub GraphQL API returned ${response.statusCode} status code\n${response.body}`)
+				})
+			})
+
+			request.on('error', error => reject(`Error retrieving repositories information\n${error.message}`))
+			request.write(data)
+			request.end()
 		})
-
-		request.on('error', error => reject(`${repository}: Error retrieving repository information\n${error.message}`))
-		request.write(data)
-		request.end()
-	})))
-		.then(repositories => repositories
+	])
+		.then(([repositories]) => repositories
 			.map(repository => {
+				if (!repository || !repository.releases) return
+
 				const release = repository.releases.nodes[0]
+
+				if (!release) return
 
 				repository.release     = release
 				repository.language    = repository.primaryLanguage
@@ -77,9 +89,8 @@ function run () {
 
 				return repository
 			})
-			.filter(repository => repository.publishedAt > Date.now() - 2592000000)
-			.sort((a, b) => a.publishedAt - b.publishedAt)
-		)
+			.filter(repository => repository && repository.publishedAt > lastMonth)
+			.sort((a, b) => a.publishedAt - b.publishedAt))
 		.catch(error => {
 			console.error(error)
 			process.exit(1)
