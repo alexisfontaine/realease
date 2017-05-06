@@ -14,25 +14,25 @@
 						<td><b>macOS</b> (.dmg)</td>
 						<td></td>
 						<td>
-							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x64.dmg" class="link" download>Download</a>
+							<a :href="`https://realease.herokuapp.com/download/${version}/RealEase-x64.dmg`" class="link" download>Download</a>
 						</td>
 					</tr>
 					<tr>
 						<td><b>Windows</b> (.exe)</td>
 						<td>
-							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x86.exe" class="link" download>Download</a>
+							<a :href="`https://realease.herokuapp.com/download/${version}/RealEase-x86.exe`" class="link" download>Download</a>
 						</td>
 						<td>
-							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-x64.exe" class="link" download>Download</a>
+							<a :href="`https://realease.herokuapp.com/download/${version}/RealEase-x64.exe`" class="link" download>Download</a>
 						</td>
 					</tr>
 					<tr>
 						<td><b>Windows</b> (.zip)</td>
 						<td>
-							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-win32-x86.zip" class="link" download>Download</a>
+							<a :href="`https://realease.herokuapp.com/download/${version}/RealEase-win32-x86.zip`" class="link" download>Download</a>
 						</td>
 						<td>
-							<a href="https://github.com/alexisfontaine/starred/releases/download/v0.4.1/RealEase-win32-x64.zip" class="link" download>Download</a>
+							<a :href="`https://realease.herokuapp.com/download/${version}/RealEase-win32-x64.zip`" class="link" download>Download</a>
 						</td>
 					</tr>
 					<tr>
@@ -69,7 +69,10 @@
 </template>
 
 <script>
-	export default { name: 'download' }
+	export default {
+		name: 'download',
+		data: () => ({ version: VERSION.tag })
+	}
 </script>
 
 <style lang="scss">
