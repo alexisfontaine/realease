@@ -41,7 +41,7 @@ function addHyperlinkTarget (string) {
 
 function run () {
 	return Promise.all(repositories.map(repository => new Promise((resolve, reject) => {
-		const data           = JSON.stringify({ query: `query{repository(owner:"${repository.split('/').join('"name:"')}"){owner{avatarURL login path}releases(last:1){nodes{tag{name}name description publishedAt}}primaryLanguage{name color}stargazers{totalCount}name path updatedAt homepageURL description}}` })
+		const data           = JSON.stringify({ query: `query{repository(owner:"${repository.split('/').join('"name:"')}"){owner{avatarUrl login path}releases(last:1){nodes{tag{name}name description publishedAt}}primaryLanguage{name color}stargazers{totalCount}name path updatedAt homepageUrl description}}` })
 		const requestHeaders = Object.assign({ 'Content-Length': data.length }, headers)
 		const requestOptions = Object.assign({ headers: requestHeaders }, options)
 

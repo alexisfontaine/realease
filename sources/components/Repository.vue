@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<h4 class="repository__title" v-if="value.owner">
-			<img class="project__logo" :src="value.owner.avatarURL" :alt="value.owner.login ? `Logo of ${value.owner.login.charAt(0).toUpperCase() + value.owner.login.slice(1)}` : 'Logo'">
+			<img class="project__logo" :src="value.owner.avatarUrl" :alt="value.owner.login ? `Logo of ${value.owner.login.charAt(0).toUpperCase() + value.owner.login.slice(1)}` : 'Logo'">
 			<a :href="`https://github.com${value.owner.path}`" target="_blank">{{ value.owner.login }}</a>
 			/
 			<a :href="`https://github.com${value.path}`" target="_blank">{{ value.name }}</a>
