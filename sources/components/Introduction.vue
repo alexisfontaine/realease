@@ -5,7 +5,13 @@
 				<h1 class="introduction__title">RealEase</h1>
 				<h2 class="introduction__subtitle">Never miss another release</h2>
 
-				<a id="download_windows" :href="`https://realease.herokuapp.com/download/${version}/RealEase-x64.exe`" class="button" :title="`Windows 64-bit ${version} (.exe)`" download>
+				<a id="download_windows64" :href="`https://realease.herokuapp.com/download/${version}/RealEase-x64.exe`" class="button" :title="`Windows 64-bit ${version} (.exe)`" download>
+					<svg class="icon--os--windows" viewBox="0 0 50 50">
+						<path d="M1.589 23.55l-0.017-15.31 18.839-2.558v17.868zM23.55 5.225l25.112-3.654v21.979h-25.112zM48.669 26.69l-0.006 21.979-25.112-3.533v-18.446zM20.41 44.736l-18.824-2.58-0.001-15.466h18.825z"></path>
+					</svg>
+					Download
+				</a>
+				<a id="download_windows32" :href="`https://realease.herokuapp.com/download/${version}/RealEase-x86.exe`" class="button" :title="`Windows 32-bit ${version} (.exe)`" download>
 					<svg class="icon--os--windows" viewBox="0 0 50 50">
 						<path d="M1.589 23.55l-0.017-15.31 18.839-2.558v17.868zM23.55 5.225l25.112-3.654v21.979h-25.112zM48.669 26.69l-0.006 21.979-25.112-3.533v-18.446zM20.41 44.736l-18.824-2.58-0.001-15.466h18.825z"></path>
 					</svg>
