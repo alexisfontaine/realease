@@ -72,7 +72,9 @@
 	.introduction__container{
 		display: flex;
 		width: 100%;
-		max-width: 1600px;
+		max-width: 1800px;
+		margin-right: auto;
+		margin-left: auto;
 	}
 
 	.introduction__header{
@@ -110,6 +112,7 @@
 		position: relative;
 		width: 50%; height: $introduction-height;
 		margin-right: 8%;
+		margin-left: 3rem;
 		padding-right: 2rem;
 	}
 

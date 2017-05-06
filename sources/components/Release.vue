@@ -44,8 +44,8 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%; height: 50%;
-		max-width: 550px;
 		min-height: 250px;
+		max-width: 650px;
 		max-height: 400px;
 		margin-bottom: 20px;
 		margin-right: 20px;
