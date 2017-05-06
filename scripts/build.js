@@ -13,9 +13,12 @@ shell.rm('-rf', publicDirectory)
 shell.mkdir(publicDirectory)
 
 require('./fetch')()
-	.then(repositories => {
+	.then(({ repositories, version }) => {
 		const configurations = require('../webpack.config')
-		const plugin         = new webpack.DefinePlugin({ REPOSITORIES: JSON.stringify(repositories) })
+		const plugin         = new webpack.DefinePlugin({
+			REPOSITORIES: JSON.stringify(repositories),
+			VERSION:      JSON.stringify(version)
+		})
 
 		configurations.forEach(configuration => configuration.plugins.push(plugin))
 
