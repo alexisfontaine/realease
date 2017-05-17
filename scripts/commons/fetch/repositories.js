@@ -39,7 +39,7 @@ module.exports = repositories => {
 			if (result.errors) {
 				const message = getErrorMessage(response.statusCode, result.errors)
 
-				if (!result.data) throw new Error(messsage)
+				if (!result.data) throw new Error(message)
 				else console.warn(message)
 			}
 
