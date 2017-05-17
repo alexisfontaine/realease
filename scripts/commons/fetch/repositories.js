@@ -25,7 +25,7 @@ module.exports = repositories => {
 	const requestHeaders = Object.assign({ Authorization: `Bearer ${accessToken}` }, headers)
 	const requestOptions = Object.assign({ headers: requestHeaders }, options)
 	const lastMonth      = Date.now() - 2592000000
-	const data           = { query: `{nodes(ids:["${repositories.join('", "')}"]){...on Repository{owner{avatarUrl login path}releases(last:1){nodes{tag{name}name description publishedAt}}primaryLanguage{name color}stargazers{totalCount}name path updatedAt homepageUrl description}}}` }
+	const data           = { query: `{nodes(ids:["${repositories.join('", "')}"]){...on Repository{owner{avatarUrl login resourcePath}releases(last:1){nodes{tag{name}name description publishedAt}}primaryLanguage{name color}stargazers{totalCount}name resourcePath updatedAt homepageUrl description}}}` }
 
 	return request(requestOptions, data)
 		.catch(error => {
