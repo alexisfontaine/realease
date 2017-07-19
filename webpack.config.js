@@ -107,8 +107,10 @@ module.exports = [
 		},
 		plugins: plugins.concat([
 			new ExtractTextPlugin('styles.css'),
+			new BabiliPlugin(),
 			new OptimizeCssAssetsPlugin({ canPrint: false }),
-			new BabiliPlugin()
+			new webpack.optimize.ModuleConcatenationPlugin(),
+			new webpack.optimize.OccurrenceOrderPlugin()
 		])
 	}
 ]
