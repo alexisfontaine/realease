@@ -61,10 +61,10 @@ const terms = [
 ]
 
 module.exports = (date, nextTick) => {
-	let secondes = (Date.now() - date) / 1000
-	let term     = null
-	let prefix   = ''
-	let suffix   = ''
+	let secondes	= (Date.now() - date) / 1000
+	let term		= null
+	let prefix		= ''
+	let suffix		= ''
 
 	for (term of terms)
 		if (secondes < term.time) break

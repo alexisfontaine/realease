@@ -1,23 +1,23 @@
-const fs       = require('fs')
-const path     = require('path')
-const webpack  = require('webpack')
-const renderer = require('vue-server-renderer')
-const shell    = require('shelljs')
-const minify   = require('./commons/minifier')
+const fs		= require('fs')
+const path		= require('path')
+const webpack	= require('webpack')
+const renderer	= require('vue-server-renderer')
+const shell		= require('shelljs')
+const minify	= require('./commons/minifier')
 
 
-const rootDirectory   = path.resolve(__dirname, '..')
-const publicDirectory = path.join(rootDirectory, './public')
+const rootDirectory		= path.resolve(__dirname, '..')
+const publicDirectory	= path.join(rootDirectory, './public')
 
 shell.rm('-rf', publicDirectory)
 shell.mkdir(publicDirectory)
 
 require('./fetch')()
 	.then(({ repositories, version }) => {
-		const configurations = require('../webpack.config')
-		const plugin         = new webpack.DefinePlugin({
-			REPOSITORIES: JSON.stringify(repositories),
-			VERSION:      JSON.stringify(version)
+		const configurations	= require('../webpack.config')
+		const plugin			= new webpack.DefinePlugin({
+			REPOSITORIES:	JSON.stringify(repositories),
+			VERSION:		JSON.stringify(version)
 		})
 
 		configurations.forEach(configuration => configuration.plugins.push(plugin))
@@ -30,9 +30,9 @@ require('./fetch')()
 		}))
 	})
 	.then(() => {
-		const bundle = path.join(publicDirectory, './bundle.js')
-		const layout = fs.readFileSync(path.join(rootDirectory, './sources/index.html'), 'utf8')
-		const entry  = fs.readFileSync(bundle, 'utf8')
+		const bundle	= path.join(publicDirectory, './bundle.js')
+		const layout	= fs.readFileSync(path.join(rootDirectory, './sources/index.html'), 'utf8')
+		const entry		= fs.readFileSync(bundle, 'utf8')
 
 		global.Vue = require('vue')
 

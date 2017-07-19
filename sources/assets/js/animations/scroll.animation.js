@@ -17,8 +17,8 @@ export default function () {
 			const target = document.querySelector(anchor.hash)
 
 			anchor.addEventListener('click', event => {
-				const timestamp = performance.now()
-				const offset    = target.getBoundingClientRect().top - scrollY
+				const timestamp	= performance.now()
+				const offset	= target.getBoundingClientRect().top - scrollY
 
 				event.preventDefault()
 				requestAnimationFrame(now => scrollAnimation(scrollY, offset, timestamp, now))

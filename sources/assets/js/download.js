@@ -1,7 +1,7 @@
 export default function (container) {
-	const platform  = navigator.platform.toLowerCase()
-	const userAgent = navigator.userAgent.toLocaleLowerCase()
-	const buttons   = Array.from(container.querySelectorAll('.button[id^=download_]'))
+	const platform	= navigator.platform.toLowerCase()
+	const userAgent	= navigator.userAgent.toLocaleLowerCase()
+	const buttons	= Array.from(container.querySelectorAll('.button[id^=download_]'))
 
 	let id = 'download_other'
 

@@ -1,7 +1,7 @@
 const marked	= require('marked')
 const highlight	= require('highlight.js')
-const keywords  = require('emojis-keywords')
-const emojis    = require('emojis-list')
+const keywords	= require('emojis-keywords')
+const emojis	= require('emojis-list')
 
 
 highlight.configure({

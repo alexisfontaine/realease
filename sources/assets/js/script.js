@@ -6,8 +6,8 @@ import flipSlideAnimation from './animations/flipSlide.animation'
 import scrollAnimation from './animations/scroll.animation'
 
 
-const introduction = document.querySelector('#introduction')
-const releases     = document.querySelector('#releases')
+const introduction	= document.querySelector('#introduction')
+const releases		= document.querySelector('#releases')
 
 computeRelativeDate(releases)
 download(introduction)

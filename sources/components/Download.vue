@@ -1,5 +1,5 @@
 <template>
-    <section class="download">
+	<section class="download">
 		<div class="container">
 			<h2 id="downloads">Downloads</h2>
 

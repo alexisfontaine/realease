@@ -1,7 +1,7 @@
 export default function (container) {
-	const releases   = container.querySelectorAll('.release')
-	const { length } = releases
-	const last       = length - 1
+	const releases		= container.querySelectorAll('.release')
+	const { length }	= releases
+	const last			= length - 1
 
 	function flipSlideAnimation (current = last) {
 		requestAnimationFrame(() => {

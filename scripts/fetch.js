@@ -1,8 +1,8 @@
-const fs   = require('fs')
+const fs = require('fs')
 
-const configuration     = require('../configuration')
-const fetchRepositories = require('./commons/fetch/repositories')
-const fetchVersion      = require('./commons/fetch/version')
+const configuration		= require('../configuration')
+const fetchRepositories	= require('./commons/fetch/repositories')
+const fetchVersion		= require('./commons/fetch/version')
 
 
 function run () {

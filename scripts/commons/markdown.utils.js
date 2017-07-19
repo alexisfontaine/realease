@@ -2,8 +2,8 @@ const project = require('../../package.json')
 
 
 const repository = {
-	owner: project.author,
-	name:  project.name
+	owner:	project.author,
+	name:	project.name
 }
 
 function uniqueAnchor (string, { owner, name } = repository) {

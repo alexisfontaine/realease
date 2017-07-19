@@ -14,10 +14,6 @@
 
 	export default {
 		name: 'application',
-		components: {
-			Introduction,
-			Download,
-			About
-		}
+		components: { Introduction, Download, About }
 	}
 </script>
