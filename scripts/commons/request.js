@@ -7,7 +7,7 @@ module.exports = (options, data) => new Promise((resolve, reject) => {
 
 	if (data) {
 		data = JSON.stringify(data)
-		requestHeaders['Content-Length'] = data.length
+		requestHeaders['Content-Length'] = Buffer.byteLength(data)
 	}
 
 	const request = https.request(requestOptions, response => {
