@@ -1,7 +1,7 @@
 <template>
 	<footer class="footer">
 		Made with <i class="heart"></i> by
-		<a href="https://github.com/alexisfontaine" class="author" target="_blank">Alexis</a>
+		<a href="https://github.com/alexisfontaine" class="author" target="_blank" rel="noopener noreferrer">Alexis</a>
 	</footer>
 </template>
 

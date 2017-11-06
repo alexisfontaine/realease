@@ -15,7 +15,7 @@ function uniqueAnchor (string, { owner, name } = repository) {
 }
 
 function addHyperlinkTarget (string) {
-	return string.replace(/(href="https?:\/\/[^"]+")/g, '$1 target="_blank"')
+	return string.replace(/(href="https?:\/\/[^"]+")/g, '$1 target="_blank" rel="noopener noreferrer"')
 }
 
 module.exports = { uniqueAnchor, addHyperlinkTarget }
