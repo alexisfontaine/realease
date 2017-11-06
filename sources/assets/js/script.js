@@ -1,5 +1,3 @@
-import './polyfills'
-
 import computeRelativeDate from './computeRelativeDate'
 import download from './download'
 import flipSlideAnimation from './animations/flipSlide.animation'
