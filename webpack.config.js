@@ -32,7 +32,10 @@ const rules = [{
 }]
 
 const plugins = [
-	new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' })
+	new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
+	new MinifyPlugin(),
+	new webpack.optimize.ModuleConcatenationPlugin(),
+	new webpack.optimize.OccurrenceOrderPlugin()
 ]
 
 module.exports = [
@@ -107,10 +110,7 @@ module.exports = [
 		},
 		plugins: plugins.concat([
 			new ExtractTextPlugin('styles.css'),
-			new MinifyPlugin(),
-			new OptimizeCssAssetsPlugin({ canPrint: false }),
-			new webpack.optimize.ModuleConcatenationPlugin(),
-			new webpack.optimize.OccurrenceOrderPlugin()
+			new OptimizeCssAssetsPlugin({ canPrint: false })
 		])
 	}
 ]
