@@ -1,3 +1,5 @@
+const querystring	= require('querystring')
+const url			= require('url')
 const request		= require('../request')
 const markdown		= require('../../../sources/helpers/markdown.helper')
 const markdownUtils	= require('../markdown.utils')
@@ -52,14 +54,15 @@ module.exports = repositories => {
 
 						if (!release) return
 
-						repository.release		= release
-						repository.language		= repository.primaryLanguage
-						repository.stargazers	= repository.stargazers.totalCount
-						repository.updatedAt	= new Date(repository.updatedAt)
-						repository.publishedAt	= new Date(release.publishedAt)
-						repository.description	= addHyperlinkTarget(markdown(repository.description))
-						release.description		= addHyperlinkTarget(uniqueAnchor(markdown(release.description), repository))
-						release.tag				= release.tag && release.tag.name
+						repository.release			= release
+						repository.language			= repository.primaryLanguage
+						repository.stargazers		= repository.stargazers.totalCount
+						repository.updatedAt		= new Date(repository.updatedAt)
+						repository.publishedAt		= new Date(release.publishedAt)
+						repository.description		= addHyperlinkTarget(markdown(repository.description))
+						release.description			= addHyperlinkTarget(uniqueAnchor(markdown(release.description), repository))
+						release.tag					= release.tag && release.tag.name
+						repository.owner.avatarUrl	= limitAvatarSize(repository.owner.avatarUrl, 120)
 
 						delete repository.releases
 						delete repository.primaryLanguage
@@ -75,6 +78,15 @@ module.exports = repositories => {
 		})
 }
 
-function getErrorMessage(statusCode, error) {
+function getErrorMessage (statusCode, error) {
 	return `GitHub GraphQL API returned ${statusCode} status code\n${typeof error === 'string' ? error : JSON.stringify(error)}`
+}
+
+function limitAvatarSize (rawUrl, size) {
+	const parsedUrl = url.parse(rawUrl, true)
+
+	return url.format({
+		...parsedUrl,
+		search: `?${querystring.stringify({ ...parsedUrl.query, size })}`
+	})
 }
