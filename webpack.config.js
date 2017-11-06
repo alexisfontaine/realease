@@ -2,7 +2,7 @@ const path		= require('path')
 const webpack	= require('webpack')
 
 const ExtractTextPlugin			= require('extract-text-webpack-plugin')
-const BabiliPlugin				= require('babili-webpack-plugin')
+const MinifyPlugin				= require('babel-minify-webpack-plugin')
 const OptimizeCssAssetsPlugin	= require('optimize-css-assets-webpack-plugin')
 
 
@@ -107,7 +107,7 @@ module.exports = [
 		},
 		plugins: plugins.concat([
 			new ExtractTextPlugin('styles.css'),
-			new BabiliPlugin(),
+			new MinifyPlugin(),
 			new OptimizeCssAssetsPlugin({ canPrint: false }),
 			new webpack.optimize.ModuleConcatenationPlugin(),
 			new webpack.optimize.OccurrenceOrderPlugin()
