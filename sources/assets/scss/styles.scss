@@ -19,9 +19,11 @@ body{
 	font-size: $font-size;
 	line-height: 1.6;
 	color: $dark-gray;
+	background-color: $background-color;
 }
 
-main{ background-color: $background-color; }
+main{ background-color: inherit; }
+
 
 h3 a, h4 a, .link{ text-decoration: none; }
 
