@@ -11,6 +11,7 @@ module.exports = {
 		'MDEwOlJlcG9zaXRvcnkzMjI4NTA1',		// atom/atom
 		'MDEwOlJlcG9zaXRvcnk4NzY4NDA2',		// postcss/autoprefixer
 		'MDEwOlJlcG9zaXRvcnkxMDI3MDI1MA==',	// facebook/react
-		'MDEwOlJlcG9zaXRvcnkyNTg4MDg5MQ=='	// facebook/flow
+		'MDEwOlJlcG9zaXRvcnkyNTg4MDg5MQ==',	// facebook/flow
+		'MDEwOlJlcG9zaXRvcnkyNzE5Mzc3OQ=='	// Node.js
 	]
 }
