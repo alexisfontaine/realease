@@ -1,17 +1,17 @@
+sudo: false
 language: node_js
 node_js:
   - lts/*
 
-sudo: false
-
-install:
-  - npm install
 script:
   - npm run build
-after_success:
+before_deploy:
   - bash ./scripts/deploy.sh
+cache:
+  directories:
+    - ./node_modules/
 deploy:
   provider: surge
-  project: public
-  domain: https://realease.surge.sh
+  project: ./public/
+  domain: realease.surge.sh
   skip_cleanup: true
