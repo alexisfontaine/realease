@@ -28,7 +28,6 @@
 		"sass-loader": "latest",
 		"shelljs": "latest",
 		"style-loader": "latest",
-		"surge": "latest",
 		"vue": "latest",
 		"vue-loader": "latest",
 		"vue-server-renderer": "latest",

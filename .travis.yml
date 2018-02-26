@@ -13,5 +13,4 @@ cache:
 deploy:
   provider: surge
   project: ./public/
-  domain: realease.surge.sh
   skip_cleanup: true
