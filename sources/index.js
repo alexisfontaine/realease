@@ -6,6 +6,4 @@ import numberFilter from './filters/number.filter'
 
 Vue.filter('number', numberFilter)
 
-const application = new Vue(Application)
-
-export default context => new Promise(resolve => resolve(application))
+export default context => new Vue(Application)
