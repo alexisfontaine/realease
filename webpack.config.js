@@ -1,8 +1,8 @@
 const path		= require('path')
 const webpack	= require('webpack')
+const externals	= require('webpack-node-externals')
 
 const ExtractTextPlugin			= require('extract-text-webpack-plugin')
-const MinifyPlugin				= require('babel-minify-webpack-plugin')
 const OptimizeCssAssetsPlugin	= require('optimize-css-assets-webpack-plugin')
 
 
@@ -11,13 +11,13 @@ const publicDirectory	= path.resolve(__dirname, './public')
 const assetsDirectory	= path.join(sourcesDirectory, './assets')
 const stylesDirectory	= path.join(assetsDirectory, './scss')
 
-const cssLoaders	= ['css-loader', 'postcss-loader']
-const sassLoaders	= cssLoaders.concat([{
+
+const mode = 'production'
+
+const sassLoader = {
 	loader: 'sass-loader',
-	options: {
-		includePaths: [stylesDirectory]
-	}
-}])
+	options: { includePaths: [stylesDirectory] }
+}
 
 const alias = {
 	sources: sourcesDirectory,
@@ -27,45 +27,29 @@ const alias = {
 const rules = [{
 	test:		/\.js$/,
 	loader:		'babel-loader',
-	include:	sourcesDirectory,
 	exclude:	/node_modules\//
 }]
 
-const plugins = [
-	new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
-	new MinifyPlugin(),
-	new webpack.optimize.ModuleConcatenationPlugin(),
-	new webpack.optimize.OccurrenceOrderPlugin()
-]
-
 module.exports = [
 	{
-		entry: {
-			script: path.join(assetsDirectory, './js/script.js')
-		},
+		mode,
+		entry: path.join(assetsDirectory, './js/script.js'),
 		output: {
-			path:		publicDirectory,
-			filename:	'[name].js',
-			publicPath:	'/'
+			filename:	'script.js',
+			path:		publicDirectory
 		},
 		resolve:	{ alias },
-		module:		{ rules },
-		plugins:	plugins.concat([new webpack.optimize.UglifyJsPlugin()])
+		module:		{ rules }
 	},
 	{
-		entry: {
-			bundle: [
-				path.join(stylesDirectory, './styles.scss'),
-				path.join(sourcesDirectory, './index.js')
-			]
-		},
-		target: 'node',
+		mode,
+		entry:	path.join(sourcesDirectory, './index.js'),
+		target:	'node',
 		output: {
 			path:			publicDirectory,
-			libraryTarget:	'commonjs2',
-			filename:		'[name].js',
-			publicPath:		'/'
+			libraryTarget:	'commonjs2'
 		},
+		externals: externals(),
 		node: {
 			__dirname:	true,
 			__filename:	true
@@ -81,36 +65,18 @@ module.exports = [
 					loader:	'vue-loader',
 					options: {
 						loaders: {
-							css: ExtractTextPlugin.extract({
-								fallback:	'vue-style-loader',
-								use:		cssLoaders
-							}),
 							scss: ExtractTextPlugin.extract({
 								fallback:	'vue-style-loader',
-								use:		sassLoaders
+								use:		['css-loader', sassLoader]
 							})
 						}
 					}
-				},
-				{
-					test: /\.css$/,
-					use: ExtractTextPlugin.extract({
-						fallback:	'style-loader',
-						use:		cssLoaders
-					})
-				},
-				{
-					test: /\.scss$/,
-					use: ExtractTextPlugin.extract({
-						fallback:	'style-loader',
-						use:		sassLoaders
-					})
 				}
 			])
 		},
-		plugins: plugins.concat([
+		plugins: [
 			new ExtractTextPlugin('styles.css'),
-			new OptimizeCssAssetsPlugin({ canPrint: false })
-		])
+			new OptimizeCssAssetsPlugin
+		]
 	}
 ]

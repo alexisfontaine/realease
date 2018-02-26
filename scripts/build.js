@@ -14,13 +14,17 @@ shell.mkdir(publicDirectory)
 
 require('./fetch')()
 	.then(({ repositories, version }) => {
-		const configurations	= require('../webpack.config')
-		const plugin			= new webpack.DefinePlugin({
-			REPOSITORIES:	JSON.stringify(repositories),
-			VERSION:		JSON.stringify(version)
-		})
+		const configurations = require('../webpack.config')
 
-		configurations.forEach(configuration => configuration.plugins.push(plugin))
+		configurations.forEach(configuration => {
+			const constants = new webpack.DefinePlugin({
+				REPOSITORIES:	JSON.stringify(repositories),
+				VERSION:		JSON.stringify(version)
+			})
+
+			if (!configuration.plugins) configuration.plugins = [constants]
+			else configuration.plugins.push(constants)
+		})
 
 		return new Promise((resolve, reject) => webpack(configurations, (error, stats) => {
 			if (error) return reject(error)
@@ -30,23 +34,17 @@ require('./fetch')()
 		}))
 	})
 	.then(() => {
-		const bundle	= path.join(publicDirectory, './bundle.js')
-		const layout	= fs.readFileSync(path.join(rootDirectory, './sources/index.html'), 'utf8')
-		const entry		= fs.readFileSync(bundle, 'utf8')
+		const layout = fs.readFileSync(path.join(rootDirectory, './sources/index.html'), 'utf8')
 
-		global.Vue = require('vue')
-
-		return new Promise((resolve, reject) => renderer
-			.createBundleRenderer(entry, { template: layout })
-			.renderToString((error, html) => {
-				if (error) return reject(error)
-
+		return renderer
+			.createRenderer({ template: layout })
+			.renderToString(require('../public/main.js').default())
+			.then(html => {
 				fs.writeFileSync(path.join(publicDirectory, './index.html'), minify(html))
 				shell.cp('-Rf', path.join(rootDirectory, './assets/*'), publicDirectory)
 				shell.mv(path.join(publicDirectory, './images/favicon/favicon.ico'), publicDirectory)
-				shell.rm(bundle)
-				resolve()
-			}))
+				shell.rm(path.join(publicDirectory, './main.js'))
+			})
 	})
 	.catch(error => {
 		console.error(error)

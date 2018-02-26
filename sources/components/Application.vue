@@ -17,3 +17,5 @@
 		components: { Introduction, Download, About }
 	}
 </script>
+
+<style lang="scss" src="../assets/scss/styles.scss" />

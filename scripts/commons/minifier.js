@@ -11,6 +11,4 @@ const options = {
 	collapseBooleanAttributes:	true
 }
 
-module.exports = string => minify(string
-	.replace(/ (data-vue-ssr-id|server-rendered)(="[^"]+")?/g, '')
-	.replace(/<\/style><style>/g, ''), options)
+module.exports = string => minify(string.replace(/ data-(server-rendered|vue-ssr-id)=("[^"]+"|'[^']+'|[^ >]+)/g, ''), options)
