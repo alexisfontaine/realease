@@ -29,7 +29,7 @@
 
 			<section class="introduction__content">
 				<div id="releases" class="releases">
-					<Release v-for="repository in repositories" :value="repository"></Release>
+					<Release v-for="repository in repositories" :key="repository.resourcePath" :value="repository"></Release>
 				</div>
 			</section>
 		</div>
