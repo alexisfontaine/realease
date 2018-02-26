@@ -1,12 +1,9 @@
 {
-	"presets":  [
+	"presets": [
 		["env", {
-			"targets": {
-				"browsers": "last 2 versions, > 5%"
-			},
+			"targets": { "browsers": "defaults" },
 			"useBuiltIns": "usage",
 			"modules": false
-		}],
-		"stage-2"
+		}]
 	]
 }

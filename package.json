@@ -16,7 +16,6 @@
 		"babel-minify-webpack-plugin": "latest",
 		"babel-polyfill": "latest",
 		"babel-preset-env": "latest",
-		"babel-preset-stage-2": "latest",
 		"css-loader": "latest",
 		"emojis-keywords": "latest",
 		"emojis-list": "latest",
