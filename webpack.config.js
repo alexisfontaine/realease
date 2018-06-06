@@ -2,8 +2,9 @@ const path		= require('path')
 const webpack	= require('webpack')
 const externals	= require('webpack-node-externals')
 
-const ExtractTextPlugin			= require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin		= require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin	= require('optimize-css-assets-webpack-plugin')
+const VueLoaderPlugin			= require('vue-loader/lib/plugin')
 
 
 const sourcesDirectory	= path.resolve(__dirname, './sources')
@@ -50,33 +51,36 @@ module.exports = [
 			libraryTarget:	'commonjs2'
 		},
 		externals: externals(),
-		node: {
-			__dirname:	true,
-			__filename:	true
-		},
 		resolve: {
-			extensions: ['.js', '.json', '.vue'],
+			extensions: ['.js', '.vue', '.json'],
 			alias
 		},
 		module: {
 			rules: rules.concat([
 				{
 					test:	/\.vue$/,
-					loader:	'vue-loader',
-					options: {
-						loaders: {
-							scss: ExtractTextPlugin.extract({
-								fallback:	'vue-style-loader',
-								use:		['css-loader', sassLoader]
-							})
-						}
-					}
+					loader:	'vue-loader'
+				},
+				{
+					test:	/\.css$/,
+					use:	[MiniCssExtractPlugin.loader, 'css-loader']
+				},
+				{
+					test:	/\.scss$/,
+					use:	[MiniCssExtractPlugin.loader, 'css-loader', sassLoader]
 				}
 			])
 		},
+		optimization: {
+			minimizer: [
+				new OptimizeCssAssetsPlugin
+			]
+		},
 		plugins: [
-			new ExtractTextPlugin('styles.css'),
-			new OptimizeCssAssetsPlugin
+			new VueLoaderPlugin,
+			new MiniCssExtractPlugin({ filename: 'styles.css' }),
+			new webpack.NamedChunksPlugin(),
+			new webpack.HashedModuleIdsPlugin(),
 		]
 	}
 ]

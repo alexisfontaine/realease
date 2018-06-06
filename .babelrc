@@ -1,7 +1,7 @@
 {
 	"presets": [
 		["env", {
-			"targets": { "browsers": "defaults" },
+			"targets": { "browsers": ["> 1%", "last 1 version"] },
 			"useBuiltIns": "usage",
 			"modules": false
 		}]

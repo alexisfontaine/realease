@@ -76,7 +76,7 @@
 </script>
 
 <style lang="scss">
-	@import 'colors';
+	@import 'colors.scss';
 
 
 	.download{

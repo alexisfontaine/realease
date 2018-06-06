@@ -43,7 +43,7 @@
 </script>
 
 <style lang="scss">
-	@import 'colors';
+	@import 'colors.scss';
 
 
 	$logo-size: 40px;

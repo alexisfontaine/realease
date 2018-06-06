@@ -18,10 +18,10 @@
 		"css-loader": "latest",
 		"emojis-keywords": "latest",
 		"emojis-list": "latest",
-		"extract-text-webpack-plugin": "^4.0.0-alpha.0",
 		"highlight.js": "latest",
 		"html-minifier": "latest",
 		"marked": "latest",
+		"mini-css-extract-plugin": "latest",
 		"node-sass": "latest",
 		"optimize-css-assets-webpack-plugin": "latest",
 		"postcss-loader": "latest",
@@ -50,5 +50,9 @@
 	"engines": {
 		"node": ">= 6.9.0",
 		"npm": ">= 3.10.8"
-	}
+	},
+	"browserslist": [
+		"> 1%",
+		"last 1 version"
+	]
 }

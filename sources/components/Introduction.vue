@@ -48,7 +48,7 @@
 </script>
 
 <style lang="scss">
-	@import 'colors';
+	@import 'colors.scss';
 
 
 	$introduction-height: 95vh;

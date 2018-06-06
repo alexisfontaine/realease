@@ -36,8 +36,8 @@
 </script>
 
 <style lang="scss">
-	@import 'colors';
-	@import 'base';
+	@import 'colors.scss';
+	@import 'base.scss';
 
 
 	.release{
