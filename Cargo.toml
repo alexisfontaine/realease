@@ -1,0 +1,50 @@
+[package]
+name = "realease"
+version = "0.1.0"
+authors = ["Alexis Fontaine <alexis.fontaine@outlook.com>"]
+edition = "2018"
+description = "Display a feed of the releases of all your starred GitHub repositories"
+
+[lib]
+crate-type = ["cdylib"]
+path = "sources/lib.rs"
+
+[dependencies]
+bincode = "1"
+chrono = { version = "0.4", default-features= false, features = ["wasmbind"] }
+crossbeam-channel = "0.4"
+js-sys = "0.3"
+ocean = { path = "../yew/components", default-features = false, features = ["router"] }
+reqwest = { version = "0.10", default-features = false, features = ["json"] }
+serde = "1"
+serde_json = "1"
+wasm-bindgen = { version = "0.2", features = ["nightly"] }
+wasm-bindgen-futures = "0.4"
+wee_alloc = { version = "0.4", optional = true }
+yew = "0.17"
+yew-router = { version = "0.14", default-features = false, features = ["agent", "web_sys"] }
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+	"IdbCursorDirection",
+	"IdbCursorWithValue",
+	"IdbDatabase",
+	"IdbFactory",
+	"IdbIndex",
+	"IdbObjectStore",
+	"IdbObjectStoreParameters",
+	"IdbOpenDbRequest",
+	"IdbRequest",
+	"IdbTransaction",
+	"IdbTransactionMode",
+	"IdbVersionChangeEvent",
+	"ScrollBehavior",
+	"ScrollToOptions",
+	"Storage",
+	"Window",
+]
+
+[profile.release]
+codegen-units = 1
+lto = true

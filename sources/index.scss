@@ -1,0 +1,144 @@
+@import 'fonts';
+@import '../../yew/components/main';
+
+
+:root {
+	--color-primary: #1bad98;
+	--color-primary-active: #1c8877;
+	--color-primary-hover: #44c6b2;
+	--color-primary-outline: #7ae3d3;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.title--sub-section {
+	--weight: 600;
+}
+
+
+.about {
+	--size: 150rem;
+
+	margin-top: 0;
+
+	.releases {
+		position: sticky;
+		top: 0;
+	}
+}
+
+.about__content {
+	--size: 90rem;
+
+	position: relative;
+	background-color: var(--color-background-sheet);
+	margin-bottom: 0;
+	padding-top: var(--margin);
+	padding-bottom: var(--margin);
+	z-index: 0;
+
+	&::before, &::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: inherit;
+		z-index: -1;
+	}
+
+	&::before {
+		transform-origin: top right;
+		transform: skewY(2deg);
+		box-shadow: 0 0 200px #0005;
+	}
+}
+
+.about__footer {
+	color: #4b526d;
+	margin-top: 0;
+
+	> nav {
+		padding-top: var(--margin);
+		border-top: 1px solid #3b3f5150;
+	}
+}
+
+
+.introduction {
+	position: relative;
+	display: grid;
+	grid-template-columns: 2fr minmax(50%, 3fr);
+	grid-column-gap: var(--margin);
+	align-items: center;
+	overflow-y: hidden;
+
+	.releases {
+		margin-top: calc(0px - var(--margin));
+		max-height: calc(100vh - var(--margin));
+	}
+}
+
+.introduction .title--headline, .introduction__subtitle {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 200;
+}
+
+.introduction__subtitle {
+	margin-top: 0;
+	margin-bottom: var(--margin);
+	font-size: 3rem;
+}
+
+
+.feed {
+	--size: 90rem;
+
+	margin-top: 0;
+}
+
+
+.setup {
+	--size: 55rem;
+
+	.title {
+		margin-bottom: 0;
+	}
+
+	form {
+		display: grid;
+		row-gap: var(--margin);
+	}
+
+	p {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.setup__footer {
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: var(--padding);
+	align-items: center;
+	color: var(--color-foreground-disabled);
+	font-size: 1.4rem;
+}
+
+
+.icon {
+	width: 1.8rem;
+	height: 1.8rem;
+	fill: currentColor;
+
+	&--star {
+		color: #ffb700;
+	}
+}
+
+
+@import 'components/release/release';
+@import 'components/repository/repository';

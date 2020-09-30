@@ -1,0 +1,45 @@
+.repository {
+	display: grid;
+	grid-row-gap: var(--padding-inline);
+}
+
+.repository__title {
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 1.6;
+}
+
+.repository__description {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.repository__details {
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: start;
+	grid-column-gap: var(--padding);
+
+	> div {
+		display: grid;
+		grid-auto-flow: column;
+		grid-column-gap: var(--padding-inline);
+		align-items: center;
+	}
+}
+
+.repository__avatar {
+	width: 4rem;
+	height: 4rem;
+	margin-right: var(--padding);
+	border-radius: 50%;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+.repository__language {
+	display: inline-block;
+	width: 1.4rem;
+	height: 1.4rem;
+	border-radius: 50%;
+}
