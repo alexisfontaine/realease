@@ -14,7 +14,7 @@ bincode = "1"
 chrono = { version = "0.4", default-features= false, features = ["wasmbind"] }
 crossbeam-channel = "0.5"
 js-sys = "0.3"
-ocean = { path = "../yew/components", default-features = false, features = ["router"] }
+ocean = { branch = "0.1", git = "https://github.com/alexisfontaine/ocean", default-features = false, features = ["router"] }
 reqwest = { version = "0.10", default-features = false, features = ["json"] }
 serde = "1"
 serde_json = "1"

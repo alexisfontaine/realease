@@ -610,6 +610,7 @@ dependencies = [
 [[package]]
 name = "ocean"
 version = "0.1.0"
+source = "git+https://github.com/alexisfontaine/ocean?branch=0.1#9961aa4eb158f5b7d4d4a18b797d80a6f1e5d913"
 dependencies = [
  "ocean-macros",
  "web-sys",
@@ -619,7 +620,8 @@ dependencies = [
 
 [[package]]
 name = "ocean-macros"
-version = "0.1.0"
+version = "0.1.1"
+source = "git+https://github.com/alexisfontaine/ocean?branch=0.1#9961aa4eb158f5b7d4d4a18b797d80a6f1e5d913"
 dependencies = [
  "quote",
  "syn",

@@ -1,5 +1,12 @@
+@import '~main';
+
+@import '~action';
+@import '~anchor';
+@import '~field';
+@import '~stack';
+@import '~title';
+
 @import 'fonts';
-@import '../../yew/components/main';
 
 
 :root {
