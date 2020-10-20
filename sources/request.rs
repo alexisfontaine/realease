@@ -69,7 +69,7 @@ impl TryFrom<raw::StarredRepositoryEdge> for RepositoryEdge {
 		let created_at = node.createdAt.parse()?;
 		let starred_at = edge.starredAt.parse()?;
 		let updated_at = node.updatedAt.parse()?;
-		let released_at = releases.first().map(|release| release.created_at.clone());
+		let released_at = releases.first().map(|release| release.created_at);
 
 		Ok(Self {
 			releases,

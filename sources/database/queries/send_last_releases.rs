@@ -21,8 +21,6 @@ impl Database {
 		});
 
 		let onerror = EventHandler::new({
-			let callback = callback.clone();
-
 			move |_| { callback.emit(Err(Error::StoreRetrieveFailed)); }
 		});
 
