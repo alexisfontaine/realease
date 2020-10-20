@@ -12,7 +12,7 @@ path = "sources/lib.rs"
 [dependencies]
 bincode = "1"
 chrono = { version = "0.4", default-features= false, features = ["wasmbind"] }
-crossbeam-channel = "0.4"
+crossbeam-channel = "0.5"
 js-sys = "0.3"
 ocean = { path = "../yew/components", default-features = false, features = ["router"] }
 reqwest = { version = "0.10", default-features = false, features = ["json"] }
