@@ -4,6 +4,8 @@ version = "0.1.0"
 authors = ["Alexis Fontaine <alexis.fontaine@outlook.com>"]
 edition = "2018"
 description = "Display a feed of the releases of all your starred GitHub repositories"
+homepage = "https://realease.alexif.net"
+repository = "https://github.com/alexisfontaine/realease"
 
 [lib]
 crate-type = ["cdylib"]
